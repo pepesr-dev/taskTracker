@@ -79,17 +79,31 @@ if (actions[selectedFunction]) {
 
 ```
 ### Glosario
-| Elemento | Acción | Sintaxis |
-| :--- | :--- | :--- |
-`process.argv[2]`
+Obtener argumentos introducidos por el usuario
+`process.argv[2]` tomar el primer argumeto (acción [add])
+`process.argv[3]` tomar el segundo argumeto (descripción)
 
+fs = require('fs').promises;
+datos,filtro,sangría
+JSON.stringify(arrayDatos, null, 2);
+const rutaArchivo = './datos.json';
+contenido = await fs.readFile(rutaArchivo, 'utf-8');
+arrayDatos = JSON.parse(contenido);
+
+trabajar con json
+CRUD
+usar require('fs')
+promises
+async/await 
+almacenar la ruta del archivo
+
+.push() para mandar al final
 
 # Utilizar acciones con parámetros
 El usuario introduce el parametro
 `node taskTracker.json addNewData salir`
 Captura el parametro, valida, escribe e informa del resultado
 ```
-
 //Almacena acciones
 const actions = {
   //Acción con parametro
