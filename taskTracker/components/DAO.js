@@ -1,13 +1,35 @@
 import fs from "node:fs/promises";
+/** @typedef {module:Task} Task */
 
 export default class DAO {
+  /**
+   * Constructor de la clase DAO que recibe
+   * la ruta del archivo json
+   * @param {string} jsonPath
+   */
   constructor(jsonPath) {
     this.jsonPath = jsonPath;
   }
 
   /**
+   * Retorna la ruta del archivo json
+   * @returns {string}
+   */
+  getJsonPath() {
+    return this.jsonPath;
+  }
+
+  /**
+   * Inserta la ruta del archivo json
+   * @param {string} newPath
+   */
+  setJsonPath(newPath) {
+    this.jsonPath = newPath;
+  }
+
+  /**
    * Obtiene el contenido del archivo json
-   * @returns json | array
+   * @returns {Promise<Task[]>}
    */
   async readAll() {
     try {
@@ -26,10 +48,10 @@ export default class DAO {
 
   /**
    * Almacena una tarea
-   * @param {*} jsonPath Ruta del archivo json
-   * @param {*} newTask Tarea nueva
+   * @param {Task} newTask Tarea nueva
+   * @returns {Promise<void>}
    */
-  async store(jsonPath, newTask) {
+  async store(newTask) {
     try {
       //Almacena el objeto completo
       let TASKS = await this.readAll();
@@ -39,6 +61,9 @@ export default class DAO {
       if (!Array.isArray(TASKS)) {
         TASKS = [];
       }
+
+      const lastId = TASKS.length > 0 ? Math.max(...TASKS.map((t) => t.id)) : 0;
+      newTask.id = lastId + 1;
 
       //Empuja la nueva tarea
       TASKS.push(newTask);

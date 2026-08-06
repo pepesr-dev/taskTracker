@@ -14,8 +14,10 @@ console.log("Resultado de la función readAll():");
 console.log(await CONN.readAll());
 console.log();
 
+let newTask = new Task("Talar");
+
 //Ejecuta el guardado de una tarea
 console.log();
 console.log("Resultado de la función store():");
-console.log(await CONN.store(JSON_PATH, "ADIOS PISHA"));
+console.log(await CONN.store(newTask));
 console.log();

@@ -1,0 +1,11 @@
+{
+  "name": "task-tracker",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "node test.js",
+    "docs": "jsdoc -c jsdoc.json"
+  },
+  "devDependencies": {
+    "jsdoc": "^4.0.5"
+  }
+}
