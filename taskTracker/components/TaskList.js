@@ -1,14 +1,26 @@
-class TaskList {
+/**
+ * @module TaskList
+ */
+import Task from "./Task";
+
+export default class TaskList {
   constructor() {
-    this.newTaskList = [];
+    /**@type {Array<Task>} */
+    this.taskList = [];
   }
-  //Almacenar tareas en la lista
+  /**
+   *
+   * @param {Task} newTask - Nueva tarea
+   * @return {number}
+   */
   store = (newTask) => {
     this.taskList.push(newTask);
-    return taskList.length - 1;
+    return this.taskList.length - 1;
   };
 
-  //Mostrar todas las tareas almacenadas
+  /**
+   *
+   */
   showTaskList = () => {
     for (let n = 0; n < this.taskList.length; n++) {
       console.log(this.taskList[n].description);
