@@ -81,3 +81,5 @@ export default class DAO {
     }
   }
 }
+
+module.exports = DAO;

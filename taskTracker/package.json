@@ -3,9 +3,43 @@
   "version": "1.0.0",
   "scripts": {
     "test": "node test.js",
-    "docs": "jsdoc -c jsdoc.json"
+    "doc": "jsdoc . -r -d docs"
   },
   "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "jest": "^30.4.2",
     "jsdoc": "^4.0.5"
-  }
+  },
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "argparse": "^2.0.1",
+    "bluebird": "^3.7.2",
+    "catharsis": "^0.9.0",
+    "entities": "^4.5.0",
+    "escape-string-regexp": "^2.0.0",
+    "graceful-fs": "^4.2.11",
+    "js2xmlparser": "^4.0.2",
+    "klaw": "^3.0.0",
+    "linkify-it": "^5.0.2",
+    "lodash": "^4.18.1",
+    "markdown-it": "^14.3.0",
+    "markdown-it-anchor": "^8.6.7",
+    "marked": "^4.3.0",
+    "mdurl": "^2.1.0",
+    "mkdirp": "^1.0.4",
+    "punycode.js": "^2.3.1",
+    "requizzle": "^0.2.4",
+    "strip-json-comments": "^3.1.1",
+    "uc.micro": "^2.1.0",
+    "underscore": "^1.13.8",
+    "xmlcreate": "^2.0.4"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
 }
