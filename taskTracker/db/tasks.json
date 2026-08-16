@@ -33,5 +33,26 @@
     "status": false,
     "createdAt": "14-08-2026 19:37",
     "updatedAt": "14-08-2026 19:37"
+  },
+  {
+    "id": 6,
+    "description": "Quemar un coche",
+    "status": false,
+    "createdAt": "16-08-2026 18:46",
+    "updatedAt": "16-08-2026 18:46"
+  },
+  {
+    "id": 7,
+    "description": "Reparar la nevera",
+    "status": false,
+    "createdAt": "16-08-2026 18:47",
+    "updatedAt": "16-08-2026 18:47"
+  },
+  {
+    "id": 8,
+    "description": "reparar la tele",
+    "status": false,
+    "createdAt": "16-08-2026 18:51",
+    "updatedAt": "16-08-2026 18:51"
   }
 ]

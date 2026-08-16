@@ -9,6 +9,7 @@
  * @property {string} updateAt - Fecha de actualización de la tarea
  */
 //Importa modulo de promesas
+import { promises } from "node:dns";
 import fs from "node:fs/promises";
 
 //Importar modulo de rutas absolutas
@@ -17,7 +18,22 @@ import path from "node:path";
 //Almacena la ruta permanente
 const JSON_PATH = path.join(import.meta.dirname, "db", "tasks.json");
 
+const ARGUMENTS = process.argv.slice(2);
+const ACTION = ARGUMENTS[0];
+const ARGUMENT = ARGUMENTS[1];
+
+//Inicializa el objeto tarea
+let tasks = [];
+
 const ACTIONS_LIST = {
+  /**
+   * Muestra todas las tareas almacenadas
+   * @returns {Promise<Task[]>} Array con todas las tareas guardadas
+   */
+  read: async () => {
+    const TASKS = await read();
+    return TASKS;
+  },
   /**
    *
    * @param {string} newDescription - Descripción de la nueva tarea
@@ -28,6 +44,20 @@ const ACTIONS_LIST = {
       return console.log("Error: Descripción no añadida");
     }
     console.log(`Tarea agregada con exito: ${newDescription}`);
+  },
+
+  //TODO: DELETE en proceso, revisar función y action
+  /**
+   * Elimina la tarea indicada
+   * @param {number} taskId
+   * @returns
+   */
+  delete: (taskId) => {
+    if (!taskId) {
+      return console.log("Error: Id no introducido");
+    }
+
+    console.log(`Tarea eliminada con exito`);
   },
 };
 /**
@@ -94,19 +124,38 @@ function generateId(Tasks) {
   return Tasks.length > 0 ? Math.max(...Tasks.map((task) => task.id)) + 1 : 1;
 }
 
-//Inicializa el objeto tarea
-let tasks = [];
+/**
+ * Elimina la tarea indicada
+ * @param {number} taskId - Identificador de la tarea que quiero eliminar
+ * @return {Promise<boolean>} isExits - Devuelve false si no encuentra la tarea
+ */
+async function deleteTaskById(taskId) {
+  /**
+   * @type {Task[]} Contiene objetos de tipo tarea
+   */
+  const JSON_DATA = await read();
+  const FILTERED_TASKS = JSON_DATA.filter((task) => task.id !== taskId);
+  await store(FILTERED_TASKS);
+
+  /**@type {Task[]} */
+  const UPDATED_DATA = await read();
+
+  const isExists = UPDATED_DATA.some((task) => task.id === taskId);
+  return isExists;
+}
+
 //Almaceno las tareas existentes
 tasks = await read();
 
 //Empuja la nueva tarea
 tasks.push({
   id: generateId(tasks),
-  description: "Quemar un coche",
+  description: ARGUMENT,
   status: false,
   createdAt: formattedDateTime(),
   updatedAt: formattedDateTime(),
 });
 
-await store(tasks);
 console.log(await read());
+
+//tarea almacenada con exito mediante el comando
