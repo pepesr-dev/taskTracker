@@ -38,7 +38,7 @@ Aplicación con interfaz para gestionar mis tareas.
 
 Lista de comandos y su uso:
 
-```
+```bash
 # Adding a new task
 task-cli add "Buy groceries"
 # Output: Task added successfully (ID: 1)
