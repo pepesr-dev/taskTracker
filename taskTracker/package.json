@@ -2,25 +2,26 @@
   "name": "tasktracker",
   "version": "1.0.0",
   "description": "Gestor de tareas",
-  "main": "index.js",
+  "main": "TaskManager.ts",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "test": "jest",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "docs": "typedoc"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "devDependencies": {
     "@types/jest": "^30.0.0",
     "@types/node": "^26.4.0",
     "jest": "^30.5.0",
     "ts-jest": "^29.4.12",
     "ts-node": "^10.9.2",
+    "tsx": "^4.23.12",
     "typedoc": "^0.28.20",
-    "typescript": "^7.0.2"
+    "typescript": "^6.0.3"
   }
 }
