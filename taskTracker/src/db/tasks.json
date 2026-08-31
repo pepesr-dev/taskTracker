@@ -1,16 +1,23 @@
 [
   {
-    "id": 4,
-    "description": "repasar",
-    "status": false,
-    "createdAt": "26-08-2026 16:21",
-    "updatedAt": "26-08-2026 16:21"
+    "id": 999,
+    "description": "Nueva tarea de la semana",
+    "status": "todo",
+    "createdAt": "fechaActual",
+    "updatedAt": "fechaActual"
   },
   {
-    "id": 5,
-    "description": "llamar",
+    "id": 999,
+    "description": "Buy groceries",
     "status": "todo",
-    "createdAt": "26-08-2026 16:47",
-    "updatedAt": "26-08-2026 16:47"
+    "createdAt": "fechaActual",
+    "updatedAt": "fechaActual"
+  },
+  {
+    "id": 999,
+    "description": "bu grocerie",
+    "status": "todo",
+    "createdAt": "fechaActual",
+    "updatedAt": "fechaActual"
   }
 ]

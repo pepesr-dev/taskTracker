@@ -1,27 +1,31 @@
-import fs from 'node:fs/promises';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { DAO } from "./DAO.js";
+import { Task } from "./Task.js";
+import type { TaskStatus } from "./Task.js";
 
-// Reemplazo moderno para __dirname en entornos ESM
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+export class TaskManager {
+  private tasks: Task[] = [];
+  private dao = new DAO();
 
-export async function cargarJSON() {
-  try {
-    const filePath = path.join(__dirname, './db/tasks.json');
-    
-    const content = await fs.readFile(filePath, 'utf-8');
-    
-    const data = JSON.parse(content);
-    
-    return data;
-  } catch (error) {
-    console.error('Error al leer el archivo JSON:', error);
+  async load(): Promise<void> {
+    this.tasks = await this.dao.loadTasks();
+  }
+
+  async addTask(description: string): Promise<boolean> {
+    try {
+      const newTask = new Task(
+        999,
+        description,
+        "todo",
+        "fechaActual",
+        "fechaActual",
+      );
+      this.tasks.push(newTask);
+      await this.dao.saveTasks(this.tasks);
+      console.log("Tarea almacenada correctamente");
+      return true;
+    } catch (error) {
+      console.error("Error al crear la nueva tarea: " + error);
+      throw error;
+    }
   }
 }
-
-export function zeroes(){
-    return 0;
-}
-
-cargarJSON();
