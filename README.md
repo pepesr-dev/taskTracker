@@ -1,11 +1,25 @@
-# [taskTracker(roadmap.sh)](https://roadmap.sh/projects/task-tracker)
+# [taskTracker - cli(roadmap.sh)](https://roadmap.sh/projects/task-tracker)
 
 Aplicación que gestiona tareas almacenadas en formato json.
-POO
 
 
-# TaskTracker - CLI
+## 🛠️ Tecnologías utilizadas
+typescript, jest, JSON, bash
 
+
+## 📦 Instalación
+
+- Descarga el repositorio: `gh repo clone pepesr-dev/taskTracker`
+- Entra en la carpeta específica de la app: `cd taskTracker`
+- Ejemplo de ejecución: `npm run task-cli -- add "Insertar nueva tarea"`
+
+
+## Contribuciones
+Esta app no acepta contribuciones.
+
+---
+
+# TaskTracker - CLI (descripción de *roadma.sh*)
 Aplicación con interfaz para gestionar mis tareas.
 
 ## Requisitos
@@ -78,3 +92,7 @@ task-cli list in-progress
 - [ ]  Asegurarme de que cada funcionalidad ha sido testeada.
 - [ ]  Limpiar código y agregar comentarios necesarios.
 - [ ]  Escribir un buen readme.md sobre como usar mi TaskTracker - CLI.
+
+
+
+**Ejemplo de ejecución**: `npm run task-cli -- add "buy groceries"`

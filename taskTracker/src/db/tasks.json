@@ -19,5 +19,47 @@
     "status": "todo",
     "createdAt": "fechaActual",
     "updatedAt": "fechaActual"
+  },
+  {
+    "id": 999,
+    "description": "bu grocerie",
+    "status": "todo",
+    "createdAt": "fechaActual",
+    "updatedAt": "fechaActual"
+  },
+  {
+    "id": 999,
+    "description": "buy groceries",
+    "status": "todo",
+    "createdAt": "fechaActual",
+    "updatedAt": "fechaActual"
+  },
+  {
+    "id": 999,
+    "description": "Insertar nueva tarea",
+    "status": "todo",
+    "createdAt": "fechaActual",
+    "updatedAt": "fechaActual"
+  },
+  {
+    "id": 10,
+    "description": "desear buena suerte",
+    "status": "todo",
+    "createdAt": "fechaActual",
+    "updatedAt": "fechaActual"
+  },
+  {
+    "id": 10,
+    "description": "desear buena suerte",
+    "status": "todo",
+    "createdAt": "fechaActual",
+    "updatedAt": "fechaActual"
+  },
+  {
+    "id": 221,
+    "description": "desear buena suerte",
+    "status": "todo",
+    "createdAt": "fechaActual",
+    "updatedAt": "fechaActual"
   }
 ]

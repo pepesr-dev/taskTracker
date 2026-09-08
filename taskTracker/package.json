@@ -3,14 +3,11 @@
   "version": "1.0.0",
   "description": "Gestor de tareas",
   "main": "./src/Main.ts",
-  "bin": {
-    "task-cli": "./src/Main.ts"
-  },
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "start": "tsx src/Main.ts",
+    "task-cli": "tsx src/Main.ts",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "docs": "typedoc"
   },
