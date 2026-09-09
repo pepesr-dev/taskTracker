@@ -42,6 +42,20 @@ async function main() {
     }
   }
 
+  if (ACTION === "update") {
+    //Forma la descripción completa de la acción introducida por el usuario
+    const ID_STRING = ARGUMENTS[1];
+    const NEW_DESCRIPTION = ARGUMENTS[2];
+
+    if (!ARGUMENT || !NEW_DESCRIPTION || !ID_STRING) {
+      console.log("Error, arguments are empty");
+      return;
+    }
+    const ID_NUMBER: Number = Number(ID_STRING);
+    //Agrega la tarea
+    await manager.updateTaskById(ID_NUMBER, NEW_DESCRIPTION);
+  }
+
   if (ACTION === "delete") {
     if (!ARGUMENT) {
       console.log("Error, argument is empty");
@@ -49,7 +63,7 @@ async function main() {
     }
 
     //Agrega la tarea
-    const IS_DELETED = await manager.deleteTaskById(ARGUMENT);
+    await manager.deleteTaskById(ARGUMENT);
   }
 
   //Cierra el lector de

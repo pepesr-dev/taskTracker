@@ -20,7 +20,7 @@ export class TaskManager {
   async addTask(description: string): Promise<Number> {
     try {
       const NEW_TASK = new Task(
-        221,
+        829,
         description,
         "todo",
         "fechaActual",
@@ -37,7 +37,33 @@ export class TaskManager {
       throw error;
     }
   }
+  /**
+   * Actualiza la descripción de la tarea que corresponde al
+   * id introducido
+   * @param taskId
+   * @param newDescription
+   * @returns {Boolean} - true | false
+   */
+  async updateTaskById(
+    taskId: Number,
+    newDescription: string,
+  ): Promise<boolean> {
+    const TASK_ID = Number(taskId);
+    //Find ya pasa la nueva tarea a this.tasks
+    const TASK_TO_UPDATE = this.tasks.find((task) => task.id === TASK_ID);
 
+    if (!TASK_TO_UPDATE) {
+      return false;
+    }
+    TASK_TO_UPDATE.description = newDescription;
+    await this.dao.saveTasks(this.tasks);
+    return true;
+  }
+  /**
+   * Elimina la tarea con el id indicado
+   * @param idToDelete
+   * @returns
+   */
   async deleteTaskById(idToDelete: string): Promise<boolean> {
     try {
       const NUMBER: number = Number(idToDelete);

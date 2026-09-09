@@ -23,29 +23,29 @@ Esta app no acepta contribuciones.
 Aplicación con interfaz para gestionar mis tareas.
 
 ## Requisitos
-- [ ]  Ejecución mediante línea de comandos
-- [ ]  Aceptar acciones y entradas como argumento
+- [X]  Ejecución mediante línea de comandos
+- [X]  Aceptar acciones y entradas como argumento
 `node TaskTracker.js add "Iniciar proyecto"`
-- [ ]  Almacenar tareas en un JSON
+- [X]  Almacenar tareas en un JSON
 
 ## Funciones:
 - [ ]  Add, Update, and Delete tasks
 - [ ]  Mark a task as in progress or done
-- [ ]  List all tasks
+- [X]  List all tasks
 - [ ]  List all tasks that are done
 - [ ]  List all tasks that are not done
 - [ ]  List all tasks that are in progress
 
 ## Restricciones
 
-- [ ]  You can use any programming language to build this project.
+- [X]  You can use any programming language to build this project.
 ***Lenguaje escogido: typeScript***
-- [ ]  Use positional arguments in command line to accept user inputs.
+- [X]  Use positional arguments in command line to accept user inputs.
 `TaskTracker.js update 1 "Iniciar proyecto TaskTracker.js"`
-- [ ]  Use a JSON file to store the tasks in the current directory.
+- [X]  Use a JSON file to store the tasks in the current directory.
 - [ ]  The JSON file should be created if it does not exist.
-- [ ]  Use the native file system module of your programming language to interact with the JSON file.
-- [ ]  Do not use any external libraries or frameworks to build this project.
+- [X]  Use the native file system module of your programming language to interact with the JSON file.
+- [X]  Do not use any external libraries or frameworks to build this project.
 - [ ]  Ensure to handle errors and edge cases gracefully.
 
 ## Ejemplo
@@ -82,8 +82,8 @@ task-cli list in-progress
 
 **Consejos**:
 
-- [ ]  Instalar mi entorno de desarrollo(jsdocs + jest)
-- [ ]  Crear el directorio para el proyecto y el controlador de versiones.
+- [X]  Instalar mi entorno de desarrollo(TSdocs + TS-jest)
+- [X]  Crear el directorio para el proyecto y el controlador de versiones.
 - [ ]  Implementar funciones básicas y probarlas todas una a una.
 - [ ]  Test y debug
 
@@ -96,3 +96,4 @@ task-cli list in-progress
 
 
 **Ejemplo de ejecución**: `npm run task-cli -- add "buy groceries"`
+**Ejemplo de ejecución**: `npm run task-cli -- delete 1`
