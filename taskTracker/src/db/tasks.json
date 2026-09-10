@@ -1,65 +1,9 @@
 [
   {
-    "id": 999,
-    "description": "Nueva tarea de la semana",
-    "status": "todo",
-    "createdAt": "fechaActual",
-    "updatedAt": "fechaActual"
-  },
-  {
-    "id": 999,
-    "description": "Buy groceries",
-    "status": "todo",
-    "createdAt": "fechaActual",
-    "updatedAt": "fechaActual"
-  },
-  {
-    "id": 999,
-    "description": "bu grocerie",
-    "status": "todo",
-    "createdAt": "fechaActual",
-    "updatedAt": "fechaActual"
-  },
-  {
-    "id": 999,
-    "description": "bu grocerie",
-    "status": "todo",
-    "createdAt": "fechaActual",
-    "updatedAt": "fechaActual"
-  },
-  {
-    "id": 999,
-    "description": "buy groceries",
-    "status": "todo",
-    "createdAt": "fechaActual",
-    "updatedAt": "fechaActual"
-  },
-  {
-    "id": 999,
-    "description": "Insertar nueva tarea",
-    "status": "todo",
-    "createdAt": "fechaActual",
-    "updatedAt": "fechaActual"
-  },
-  {
-    "id": 10,
-    "description": "desear buena suerte",
-    "status": "todo",
-    "createdAt": "fechaActual",
-    "updatedAt": "fechaActual"
-  },
-  {
-    "id": 10,
-    "description": "desear buena suerte",
-    "status": "todo",
-    "createdAt": "fechaActual",
-    "updatedAt": "fechaActual"
-  },
-  {
-    "id": 221,
-    "description": "Recoger la moto",
-    "status": "todo",
-    "createdAt": "fechaActual",
-    "updatedAt": "fechaActual"
+    "id": 1,
+    "description": "Probar funcion de actualización de tareas",
+    "status": "done",
+    "createdAt": "10/9/2026, 19:25:26",
+    "updatedAt": "10/9/2026, 19:26:30"
   }
 ]

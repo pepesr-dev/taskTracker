@@ -1,7 +1,6 @@
 import { DAO } from "./DAO.js";
 import { TaskManager } from "./TaskManager.js";
 import { Task } from "./Task.js";
-import type { TaskStatus } from "./Task.js";
 //Importa el lector de la terminal
 import * as rl from "readline";
 
@@ -12,7 +11,6 @@ const READ_LINE = rl.createInterface({
 });
 const dao = new DAO();
 const manager = new TaskManager();
-
 /**
  * Función que prepara el escenario para el usuario.
  * @returns
@@ -64,6 +62,45 @@ async function main() {
 
     //Agrega la tarea
     await manager.deleteTaskById(ARGUMENT);
+  }
+  if (ACTION === "mark-in-progress") {
+    const ID_STRING = ARGUMENTS[1];
+
+    if (!ID_STRING) {
+      console.log("Error, arguments are empty");
+      return;
+    }
+
+    //Agrega la tarea
+    await manager.markAsInProgress(ID_STRING);
+  }
+  if (ACTION === "mark-done") {
+    const ID_STRING = ARGUMENTS[1];
+
+    if (!ID_STRING) {
+      console.log("Error, arguments are empty");
+      return;
+    }
+
+    //Agrega la tarea
+    await manager.markAsDone(ID_STRING);
+  }
+  if (ACTION === "list") {
+    // Extraemos el filtro del argumento (ej: "todo", "in-progress", "done")
+    const FILTRO = ARGUMENTS[1]?.toLowerCase();
+
+    // 1. Evaluamos cada caso específico usando else if para que solo entre en UNO
+    if (FILTRO === "todo") {
+      console.table(await manager.listTodoTasks());
+    } else if (FILTRO === "in-progress") {
+      console.table(await manager.listInProgressTasks());
+    } else if (FILTRO === "done") {
+      console.table(await manager.listDoneTasks());
+    }
+    // 2. Si el usuario solo escribió "list" sin filtros adicionales, muestra todas
+    else {
+      console.table(await manager.listAllTasks());
+    }
   }
 
   //Cierra el lector de

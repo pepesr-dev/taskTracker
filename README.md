@@ -29,8 +29,8 @@ Aplicación con interfaz para gestionar mis tareas.
 - [X]  Almacenar tareas en un JSON
 
 ## Funciones:
-- [ ]  Add, Update, and Delete tasks
-- [ ]  Mark a task as in progress or done
+- [X]  Add, Update, and Delete tasks
+- [X]  Mark a task as in progress or done
 - [X]  List all tasks
 - [ ]  List all tasks that are done
 - [ ]  List all tasks that are not done
@@ -43,7 +43,7 @@ Aplicación con interfaz para gestionar mis tareas.
 - [X]  Use positional arguments in command line to accept user inputs.
 `TaskTracker.js update 1 "Iniciar proyecto TaskTracker.js"`
 - [X]  Use a JSON file to store the tasks in the current directory.
-- [ ]  The JSON file should be created if it does not exist.
+- [X]  The JSON file should be created if it does not exist.
 - [X]  Use the native file system module of your programming language to interact with the JSON file.
 - [X]  Do not use any external libraries or frameworks to build this project.
 - [ ]  Ensure to handle errors and edge cases gracefully.
@@ -96,4 +96,21 @@ task-cli list in-progress
 
 
 **Ejemplo de ejecución**: `npm run task-cli -- add "buy groceries"`
-**Ejemplo de ejecución**: `npm run task-cli -- delete 1`
+
+```bash
+# Adding a new task
+npm run task-cli -- add "buy groceries"
+# Output: Task added successfully (ID: 1)
+# Updating and deleting tasks
+npm run task-cli -- update 1 "Buy groceries and cook dinner"
+npm run task-cli -- delete 1
+# Marking a task as in progress or done
+npm run task-cli -- mark-in-progress 1
+npm run task-cli -- mark-done 1
+# Listing all tasks
+npm run task-cli -- list
+# Listing tasks by status
+npm run task-cli -- list done
+npm run task-cli -- list todo
+npm run task-cli -- list in-progress
+```
