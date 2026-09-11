@@ -9,7 +9,7 @@
   "scripts": {
     "task-cli": "tsx src/Main.ts",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "docs": "typedoc"
+    "docs": "typedoc --entryPointStrategy expand --exclude \"**/*.test.ts\" --readme ../README.md ./src"
   },
   "keywords": [],
   "author": "",

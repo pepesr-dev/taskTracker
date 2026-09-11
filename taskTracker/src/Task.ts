@@ -1,3 +1,6 @@
+/**
+ * Clase que contiene los atributos del objeto tarea
+ */
 export class Task {
   constructor(
     public id: number,

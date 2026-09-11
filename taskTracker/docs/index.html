@@ -1,0 +1,116 @@
+<!DOCTYPE html><html class="default" lang="en" data-base="./"><head><meta charset="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>tasktracker</title><meta name="description" content="Documentation for tasktracker"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script defer src="assets/main.js"></script><script async src="assets/icons.js" id="tsd-icons-script"></script><script async src="assets/search.js" id="tsd-search-script"></script><script async src="assets/navigation.js" id="tsd-nav-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => window.app?app.showPage():document.body.style.removeProperty("display"),500)</script><header class="tsd-page-toolbar">
+<div class="tsd-toolbar-contents container"><a href="index.html" class="title">tasktracker</a>
+<div id="tsd-toolbar-links"></div><button id="tsd-search-trigger" class="tsd-widget" aria-label="Search"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-search"></use></svg></button><dialog id="tsd-search" aria-label="Search"><input role="combobox" id="tsd-search-input" aria-controls="tsd-search-results" aria-autocomplete="list" aria-expanded="true" autocapitalize="off" autocomplete="off" placeholder="Search the docs" maxLength="100"/>
+<ul role="listbox" id="tsd-search-results"></ul>
+<div id="tsd-search-status" aria-live="polite" aria-atomic="true">
+<div>Preparing search index...</div></div></dialog><a href="#" class="tsd-widget menu" id="tsd-toolbar-menu-trigger" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-menu"></use></svg></a></div></header>
+<div class="container container-main">
+<div class="col-content">
+<div class="tsd-page-title">
+<h1>tasktracker</h1></div>
+<div class="tsd-panel tsd-typography"><h1 id="tasktracker-cliroadmapsh" class="tsd-anchor-link"><a href="https://roadmap.sh/projects/task-tracker">taskTracker - cli(roadmap.sh)</a><a href="#tasktracker-cliroadmapsh" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h1>
+<p>Aplicación que gestiona tareas almacenadas en formato json.</p>
+<h2 id="🛠️-tecnologías-utilizadas" class="tsd-anchor-link">🛠️ Tecnologías utilizadas<a href="#🛠️-tecnologías-utilizadas" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>typescript, jest, JSON, bash</p>
+<h2 id="📦-instalación" class="tsd-anchor-link">📦 Instalación<a href="#📦-instalación" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<ul>
+<li>Descarga el repositorio: <code>gh repo clone pepesr-dev/taskTracker</code></li>
+<li>Entra en la carpeta específica de la app: <code>cd taskTracker</code></li>
+<li>Ejemplo de ejecución: <code>npm run task-cli -- add &quot;Insertar nueva tarea&quot;</code></li>
+</ul>
+<h2 id="contribuciones" class="tsd-anchor-link">Contribuciones<a href="#contribuciones" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>Esta app no acepta contribuciones.</p>
+<hr>
+<h1 id="tasktracker-cli-descripción-de-roadmash" class="tsd-anchor-link">TaskTracker - CLI (descripción de <em><a href="http://roadma.sh">roadma.sh</a></em>)<a href="#tasktracker-cli-descripción-de-roadmash" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h1>
+<p>Aplicación con interfaz para gestionar mis tareas.</p>
+<h2 id="requisitos" class="tsd-anchor-link">Requisitos<a href="#requisitos" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<ul>
+<li>[X]  Ejecución mediante línea de comandos</li>
+<li>[X]  Aceptar acciones y entradas como argumento
+<code>node TaskTracker.js add &quot;Iniciar proyecto&quot;</code></li>
+<li>[X]  Almacenar tareas en un JSON</li>
+</ul>
+<h2 id="funciones" class="tsd-anchor-link">Funciones:<a href="#funciones" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<ul>
+<li>[X]  Add, Update, and Delete tasks</li>
+<li>[X]  Mark a task as in progress or done</li>
+<li>[X]  List all tasks</li>
+<li>[ ]  List all tasks that are done</li>
+<li>[ ]  List all tasks that are not done</li>
+<li>[ ]  List all tasks that are in progress</li>
+</ul>
+<h2 id="restricciones" class="tsd-anchor-link">Restricciones<a href="#restricciones" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<ul>
+<li>[X]  You can use any programming language to build this project.
+<em><strong>Lenguaje escogido: typeScript</strong></em></li>
+<li>[X]  Use positional arguments in command line to accept user inputs.
+<code>TaskTracker.js update 1 &quot;Iniciar proyecto TaskTracker.js&quot;</code></li>
+<li>[X]  Use a JSON file to store the tasks in the current directory.</li>
+<li>[X]  The JSON file should be created if it does not exist.</li>
+<li>[X]  Use the native file system module of your programming language to interact with the JSON file.</li>
+<li>[X]  Do not use any external libraries or frameworks to build this project.</li>
+<li>[ ]  Ensure to handle errors and edge cases gracefully.</li>
+</ul>
+<h2 id="ejemplo" class="tsd-anchor-link">Ejemplo<a href="#ejemplo" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>Lista de comandos y su uso:</p>
+<pre><code class="bash"><span class="hl-0"># Adding a new task</span><br/><span class="hl-1">task-cli</span><span class="hl-2"> </span><span class="hl-3">add</span><span class="hl-2"> </span><span class="hl-3">&quot;Buy groceries&quot;</span><br/><span class="hl-0"># Output: Task added successfully (ID: 1)</span><br/><span class="hl-0"># Updating and deleting tasks</span><br/><span class="hl-1">task-cli</span><span class="hl-2"> </span><span class="hl-3">update</span><span class="hl-2"> </span><span class="hl-4">1</span><span class="hl-2"> </span><span class="hl-3">&quot;Buy groceries and cook dinner&quot;</span><br/><span class="hl-1">task-cli</span><span class="hl-2"> </span><span class="hl-3">delete</span><span class="hl-2"> </span><span class="hl-4">1</span><br/><span class="hl-0"># Marking a task as in progress or done</span><br/><span class="hl-1">task-cli</span><span class="hl-2"> </span><span class="hl-3">mark-in-progress</span><span class="hl-2"> </span><span class="hl-4">1</span><br/><span class="hl-1">task-cli</span><span class="hl-2"> </span><span class="hl-3">mark-done</span><span class="hl-2"> </span><span class="hl-4">1</span><br/><span class="hl-0"># Listing all tasks</span><br/><span class="hl-1">task-cli</span><span class="hl-2"> </span><span class="hl-3">list</span><br/><span class="hl-0"># Listing tasks by status</span><br/><span class="hl-1">task-cli</span><span class="hl-2"> </span><span class="hl-3">list</span><span class="hl-2"> </span><span class="hl-3">done</span><br/><span class="hl-1">task-cli</span><span class="hl-2"> </span><span class="hl-3">list</span><span class="hl-2"> </span><span class="hl-3">todo</span><br/><span class="hl-1">task-cli</span><span class="hl-2"> </span><span class="hl-3">list</span><span class="hl-2"> </span><span class="hl-3">in-progress</span>
+</code><button type="button">Copy</button></pre>
+
+<h2 id="propiedades-de-las-tareas" class="tsd-anchor-link">Propiedades de las tareas<a href="#propiedades-de-las-tareas" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<ul>
+<li><strong><code>id</code></strong>: A unique identifier for the task</li>
+<li><strong><code>description</code></strong>: A short description of the task</li>
+<li><strong><code>status</code></strong>: The status of the task (<strong><code>todo</code></strong>, <strong><code>in-progress</code></strong>, <strong><code>done</code></strong>)</li>
+<li><strong><code>createdAt</code></strong>: The date and time when the task was created</li>
+<li><strong><code>updatedAt</code></strong>: The date and time when the task was last updated</li>
+</ul>
+<h1 id="empezar" class="tsd-anchor-link">Empezar<a href="#empezar" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h1>
+<p><strong>Consejos</strong>:</p>
+<ul>
+<li>[X]  Instalar mi entorno de desarrollo(TSdocs + TS-jest)</li>
+<li>[X]  Crear el directorio para el proyecto y el controlador de versiones.</li>
+<li>[ ]  Implementar funciones básicas y probarlas todas una a una.</li>
+<li>[ ]  Test y debug</li>
+</ul>
+<p><strong>Para terminar:</strong></p>
+<ul>
+<li>[ ]  Asegurarme de que cada funcionalidad ha sido testeada.</li>
+<li>[ ]  Limpiar código y agregar comentarios necesarios.</li>
+<li>[ ]  Escribir un buen <a href="http://readme.md">readme.md</a> sobre como usar mi TaskTracker - CLI.</li>
+</ul>
+<h1 id="ejemplo-de-ejecución" class="tsd-anchor-link">Ejemplo de ejecución<a href="#ejemplo-de-ejecución" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h1>
+<pre><code class="bash"><span class="hl-0"># Adding a new task</span><br/><span class="hl-1">npm</span><span class="hl-2"> </span><span class="hl-3">run</span><span class="hl-2"> </span><span class="hl-3">task-cli</span><span class="hl-2"> </span><span class="hl-5">--</span><span class="hl-2"> </span><span class="hl-3">add</span><span class="hl-2"> </span><span class="hl-3">&quot;buy groceries&quot;</span><br/><span class="hl-0"># Output: Task added successfully (ID: 1)</span><br/><span class="hl-0"># Updating and deleting tasks</span><br/><span class="hl-1">npm</span><span class="hl-2"> </span><span class="hl-3">run</span><span class="hl-2"> </span><span class="hl-3">task-cli</span><span class="hl-2"> </span><span class="hl-5">--</span><span class="hl-2"> </span><span class="hl-3">update</span><span class="hl-2"> </span><span class="hl-4">1</span><span class="hl-2"> </span><span class="hl-3">&quot;Buy groceries and cook dinner&quot;</span><br/><span class="hl-1">npm</span><span class="hl-2"> </span><span class="hl-3">run</span><span class="hl-2"> </span><span class="hl-3">task-cli</span><span class="hl-2"> </span><span class="hl-5">--</span><span class="hl-2"> </span><span class="hl-3">delete</span><span class="hl-2"> </span><span class="hl-4">1</span><br/><span class="hl-0"># Marking a task as in progress or done</span><br/><span class="hl-1">npm</span><span class="hl-2"> </span><span class="hl-3">run</span><span class="hl-2"> </span><span class="hl-3">task-cli</span><span class="hl-2"> </span><span class="hl-5">--</span><span class="hl-2"> </span><span class="hl-3">mark-in-progress</span><span class="hl-2"> </span><span class="hl-4">1</span><br/><span class="hl-1">npm</span><span class="hl-2"> </span><span class="hl-3">run</span><span class="hl-2"> </span><span class="hl-3">task-cli</span><span class="hl-2"> </span><span class="hl-5">--</span><span class="hl-2"> </span><span class="hl-3">mark-done</span><span class="hl-2"> </span><span class="hl-4">1</span><br/><span class="hl-0"># Listing all tasks</span><br/><span class="hl-1">npm</span><span class="hl-2"> </span><span class="hl-3">run</span><span class="hl-2"> </span><span class="hl-3">task-cli</span><span class="hl-2"> </span><span class="hl-5">--</span><span class="hl-2"> </span><span class="hl-3">list</span><br/><span class="hl-0"># Listing tasks by status</span><br/><span class="hl-1">npm</span><span class="hl-2"> </span><span class="hl-3">run</span><span class="hl-2"> </span><span class="hl-3">task-cli</span><span class="hl-2"> </span><span class="hl-5">--</span><span class="hl-2"> </span><span class="hl-3">list</span><span class="hl-2"> </span><span class="hl-3">done</span><br/><span class="hl-1">npm</span><span class="hl-2"> </span><span class="hl-3">run</span><span class="hl-2"> </span><span class="hl-3">task-cli</span><span class="hl-2"> </span><span class="hl-5">--</span><span class="hl-2"> </span><span class="hl-3">list</span><span class="hl-2"> </span><span class="hl-3">todo</span><br/><span class="hl-1">npm</span><span class="hl-2"> </span><span class="hl-3">run</span><span class="hl-2"> </span><span class="hl-3">task-cli</span><span class="hl-2"> </span><span class="hl-5">--</span><span class="hl-2"> </span><span class="hl-3">list</span><span class="hl-2"> </span><span class="hl-3">in-progress</span>
+</code><button type="button">Copy</button></pre>
+
+</div></div>
+<div class="col-sidebar">
+<div class="page-menu">
+<div class="tsd-navigation settings">
+<details class="tsd-accordion"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-chevronDown"></use></svg>
+<h3>Settings</h3></summary>
+<div class="tsd-accordion-details">
+<div class="tsd-filter-visibility"><span class="settings-label">Member Visibility</span>
+<ul id="tsd-filter-options">
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li>
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li>
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-external" name="external"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>External</span></label></li></ul></div>
+<div class="tsd-theme-toggle"><label class="settings-label" for="tsd-theme">Theme</label><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div>
+<details open class="tsd-accordion tsd-page-navigation"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-chevronDown"></use></svg>
+<h3>On This Page</h3></summary>
+<div class="tsd-accordion-details"><a href="#tasktracker-cliroadmapsh"><span>task<wbr/>Tracker -<wbr/> cli(roadmap.sh)</span></a>
+<ul>
+<li><a href="#🛠️-tecnologías-utilizadas"><span>🛠️ <wbr/>Tecnologías utilizadas</span></a></li>
+<li><a href="#📦-instalación"><span>📦 <wbr/>Instalación</span></a></li>
+<li><a href="#contribuciones"><span>Contribuciones</span></a></li></ul><a href="#tasktracker-cli-descripción-de-roadmash"><span>Task<wbr/>Tracker -<wbr/> <wbr/>CLI (descripción de roadma.sh)</span></a>
+<ul>
+<li><a href="#requisitos"><span>Requisitos</span></a></li>
+<li><a href="#funciones"><span>Funciones:</span></a></li>
+<li><a href="#restricciones"><span>Restricciones</span></a></li>
+<li><a href="#ejemplo"><span>Ejemplo</span></a></li>
+<li><a href="#propiedades-de-las-tareas"><span>Propiedades de las tareas</span></a></li></ul><a href="#empezar"><span>Empezar</span></a><a href="#ejemplo-de-ejecución"><span>Ejemplo de ejecución</span></a></div></details></div>
+<div class="site-menu">
+<nav class="tsd-navigation"><a href="modules.html">tasktracker</a>
+<ul class="tsd-small-nested-navigation" id="tsd-nav-container">
+<li>Loading...</li></ul></nav></div></div></div><footer>
+<p class="tsd-generator">Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></footer>
+<div class="overlay"></div></body></html>

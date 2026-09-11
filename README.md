@@ -95,8 +95,7 @@ task-cli list in-progress
 
 
 
-**Ejemplo de ejecución**: `npm run task-cli -- add "buy groceries"`
-
+# Ejemplo de ejecución
 ```bash
 # Adding a new task
 npm run task-cli -- add "buy groceries"

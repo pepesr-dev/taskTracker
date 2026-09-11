@@ -1,5 +1,9 @@
 import { DAO } from "./DAO.js";
 import { Task } from "./Task.js";
+
+/**
+ * Clase que contiene las funciones para gestionar las tareas
+ */
 export class TaskManager {
   private tasks: Task[] = [];
   //Inicializa el objeto dao
@@ -21,7 +25,7 @@ export class TaskManager {
 
       const NEW_ID =
         this.tasks.length > 0
-          ? Math.max(...this.tasks.map((t) => t.id)) + 1
+          ? Math.max(...this.tasks.map((task) => task.id)) + 1
           : 1;
       const NEW_TASK = new Task(NEW_ID, description, "todo", now, now);
 
@@ -38,9 +42,9 @@ export class TaskManager {
   /**
    * Actualiza la descripción de la tarea que corresponde al
    * id introducido
-   * @param taskId
-   * @param newDescription
-   * @returns {Boolean} - true | false
+   * @param {number} taskId - ID de la tarea
+   * @param {string} newDescription - Nueva descripción de la tarea
+   * @returns {Boolean} - Devuelve verdadero si la tarea fue actualizada
    */
   async updateTaskById(
     taskId: Number,
@@ -61,23 +65,41 @@ export class TaskManager {
     return true;
   }
   /**
-   * Elimina la tarea con el id indicado
-   * @param idToDelete
-   * @returns
+   * Elimina la tarea indicada por el usuario mediante el id
+   * @param {string} idToDelete - ID introducido por el usuario
+   * @returns {Promise<boolean>} Devuelve verdadero si la tarea existía y fue eliminada.
    */
   async deleteTaskById(idToDelete: string): Promise<boolean> {
     try {
       const TASK_ID = Number(idToDelete);
+
+      //Sincroniza con el json para asegurar que trabaja con datos reales
+      await this.load();
+
+      // Guardamos cuántas tareas teníamos antes de borrar
+      const TOTAL_TASKS = this.tasks.length;
+      //Obtiene todas las tareas menos la que coincide con el id indicado
       this.tasks = this.tasks.filter((task) => task.id !== TASK_ID);
 
+      //Verifica que el total de tareas haya variado
+      if (this.tasks.length === TOTAL_TASKS) {
+        return false;
+      }
+
+      //Guarda la lista sin la tarea indicada
       await this.dao.saveTasks(this.tasks);
       return true;
     } catch (error) {
-      console.error("Error deleting task " + error);
+      console.error(`Error al intentar eliminar la tarea`, error);
       throw error;
     }
   }
 
+  /**
+   * Actualiza el esto de una tarea a In-progress
+   * @param {string} idToMarkAsInProgres
+   * @returns
+   */
   async markAsInProgress(idToMarkAsInProgres: string): Promise<Boolean> {
     const TASK_ID = Number(idToMarkAsInProgres);
 
@@ -90,6 +112,11 @@ export class TaskManager {
     await this.dao.saveTasks(this.tasks);
     return true;
   }
+  /**
+   * Actualiza el esto de una tarea a Done
+   * @param {string} idToMarkAsDone
+   * @returns
+   */
   async markAsDone(idToMarkAsDone: string): Promise<Boolean> {
     const TASK_ID = Number(idToMarkAsDone);
 
@@ -103,11 +130,19 @@ export class TaskManager {
     return true;
   }
 
+  /**
+   * Obtiene todas las tareas almacenadas en el archivo json
+   * @returns
+   */
   async listAllTasks(): Promise<Task[]> {
     await this.load();
 
     return this.tasks;
   }
+  /**
+   * Obtiene solo las tareas con estado Todo
+   * @returns
+   */
   async listTodoTasks(): Promise<Task[]> {
     await this.load();
 
@@ -115,6 +150,10 @@ export class TaskManager {
 
     return TODO_TASKS;
   }
+  /**
+   * Obtiene solo las tareas con estado In-progress
+   * @returns
+   */
   async listInProgressTasks(): Promise<Task[]> {
     await this.load();
 
@@ -125,6 +164,10 @@ export class TaskManager {
     return IN_PROGRESS_TASKS;
   }
 
+  /**
+   * Obtiene solo las tareas con estado done
+   * @returns
+   */
   async listDoneTasks(): Promise<Task[]> {
     await this.load();
 

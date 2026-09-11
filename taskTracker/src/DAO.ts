@@ -10,8 +10,10 @@ const FILE_PATH = path.join(__DIR_NAME, "./db/tasks.json");
 
 export class DAO {
   /**
-   * Carga las tareas almacenada en json
-   * @returns {Task}
+   * Carga las tareas almacenadas en el archivo JSON.
+   * @returns {Promise<Task[]>} Arreglo de instancias de Task.
+   * @throws {SyntaxError} Si el archivo JSON está corrupto.
+   * @throws {Error} Si ocurre un fallo crítico de lectura o permisos.
    */
   async loadTasks(): Promise<Task[]> {
     try {
@@ -39,19 +41,28 @@ export class DAO {
           ),
       );
     } catch (error: any) {
+      //Captura los errores por mal formato de las tareas
+      if (error instanceof SyntaxError) {
+        console.error("Error, las tareas no mantienen el formato adecuado.");
+        throw error;
+      }
+      //Captura el error ENOENT de JSON vacío o inesistente
+      //y crea uno con un array vacío
       if (error.code === "ENOENT") {
         const EMPTY_TASK: Task[] = [];
         await this.saveTasks(EMPTY_TASK);
         return EMPTY_TASK;
       }
+      //Cualquier otro error se propaga hacia el main
       throw error;
     }
   }
 
   /**
-   * Almacena las tareas en el archivo json
-   * @param {Task} tasks - Objeto tarea
-   * @returns {boolean}- Devuelve verdadero si realizó la acción correctamente
+   * Almacena las tareas en el archivo JSON.
+   * @param {Task[]} tasks - Arreglo de instancias de Task a persistir.
+   * @returns {Promise<boolean>} Devuelve verdadero si realizó la acción correctamente.
+   * @throws {Error} Si falla la escritura en el disco duro.
    */
   async saveTasks(tasks: Task[]): Promise<boolean> {
     try {
@@ -60,6 +71,7 @@ export class DAO {
       return true;
     } catch (error) {
       console.error("Error al guardar en el archivo JSON:", error);
+
       throw error;
     }
   }
