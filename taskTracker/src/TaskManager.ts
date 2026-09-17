@@ -106,7 +106,7 @@ export class TaskManager {
       await this.dao.saveTasks(this.tasks);
       return true;
     } catch (error) {
-      console.error(`Error al intentar eliminar la tarea`, error);
+      console.error("Error deleting task: " + error);
       throw error;
     }
   }
@@ -117,16 +117,24 @@ export class TaskManager {
    * @returns
    */
   async markAsInProgress(idToMarkAsInProgres: string): Promise<Boolean> {
-    const TASK_ID = Number(idToMarkAsInProgres);
+    try {
+      if (idToMarkAsInProgres === undefined || idToMarkAsInProgres === null) {
+        throw new Error("Error, invalid or empty idToMarkAsInProgres");
+      }
+      const TASK_ID = Number(idToMarkAsInProgres);
 
-    const TASK_TO_UPDATE = this.tasks.find((task) => task.id === TASK_ID);
-    if (!TASK_TO_UPDATE) {
-      return false;
+      const TASK_TO_UPDATE = this.tasks.find((task) => task.id === TASK_ID);
+      if (!TASK_TO_UPDATE) {
+        return false;
+      }
+
+      TASK_TO_UPDATE.status = "in-progress";
+      await this.dao.saveTasks(this.tasks);
+      return true;
+    } catch (error) {
+      console.error("Error trying to change task status: ", error);
+      throw error;
     }
-
-    TASK_TO_UPDATE.status = "in-progress";
-    await this.dao.saveTasks(this.tasks);
-    return true;
   }
   /**
    * Actualiza el esto de una tarea a Done
@@ -134,16 +142,24 @@ export class TaskManager {
    * @returns
    */
   async markAsDone(idToMarkAsDone: string): Promise<Boolean> {
-    const TASK_ID = Number(idToMarkAsDone);
+    try {
+      if (idToMarkAsDone === undefined || idToMarkAsDone === null) {
+        throw new Error("Error, invalid or empty idToMarkAsDone");
+      }
+      const TASK_ID = Number(idToMarkAsDone);
 
-    const TASK_TO_UPDATE = this.tasks.find((task) => task.id === TASK_ID);
-    if (!TASK_TO_UPDATE) {
-      return false;
+      const TASK_TO_UPDATE = this.tasks.find((task) => task.id === TASK_ID);
+      if (!TASK_TO_UPDATE) {
+        return false;
+      }
+
+      TASK_TO_UPDATE.status = "done";
+      await this.dao.saveTasks(this.tasks);
+      return true;
+    } catch (error) {
+      console.error("Error trying to change task status: " + error);
+      throw error;
     }
-
-    TASK_TO_UPDATE.status = "done";
-    await this.dao.saveTasks(this.tasks);
-    return true;
   }
 
   /**
@@ -151,33 +167,42 @@ export class TaskManager {
    * @returns
    */
   async listAllTasks(): Promise<Task[]> {
-    await this.load();
-
-    return this.tasks;
+    try {
+      return this.tasks;
+    } catch (error) {
+      console.error("Error loading tasks: " + error);
+      throw error;
+    }
   }
   /**
    * Obtiene solo las tareas con estado Todo
    * @returns
    */
   async listTodoTasks(): Promise<Task[]> {
-    await this.load();
+    try {
+      const TODO_TASKS = this.tasks.filter((task) => task.status === "todo");
 
-    const TODO_TASKS = this.tasks.filter((task) => task.status === "todo");
-
-    return TODO_TASKS;
+      return TODO_TASKS;
+    } catch (error) {
+      console.error("Error loading todoTasks: " + error);
+      throw error;
+    }
   }
   /**
    * Obtiene solo las tareas con estado In-progress
    * @returns
    */
   async listInProgressTasks(): Promise<Task[]> {
-    await this.load();
+    try {
+      const IN_PROGRESS_TASKS = this.tasks.filter(
+        (task) => task.status === "in-progress",
+      );
 
-    const IN_PROGRESS_TASKS = this.tasks.filter(
-      (task) => task.status === "in-progress",
-    );
-
-    return IN_PROGRESS_TASKS;
+      return IN_PROGRESS_TASKS;
+    } catch (error) {
+      console.error("Error loading inProgressTasks: " + error);
+      throw error;
+    }
   }
 
   /**
@@ -185,10 +210,13 @@ export class TaskManager {
    * @returns
    */
   async listDoneTasks(): Promise<Task[]> {
-    await this.load();
+    try {
+      const DONE_TASKS = this.tasks.filter((task) => task.status === "done");
 
-    const DONE_TASKS = this.tasks.filter((task) => task.status === "done");
-
-    return DONE_TASKS;
+      return DONE_TASKS;
+    } catch (error) {
+      console.error("Error loading doneTasks: " + error);
+      throw error;
+    }
   }
 }

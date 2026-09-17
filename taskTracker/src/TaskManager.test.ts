@@ -137,7 +137,7 @@ describe("deleteTaskById", () => {
   });
 });
 
-// ==================== TESTS DE DELETE TASK ====================
+// ==================== TESTS DE UPDATE TASK ====================
 
 describe("updateTaskById", () => {
   let manager: TaskManager;
@@ -213,5 +213,229 @@ describe("updateTaskById", () => {
     await expect(manager.updateTaskById(1, "Task 1")).rejects.toThrow(
       "Disk Full",
     );
+  });
+});
+
+// ==================== TESTS DE markAsInProgress TASK ====================
+describe("markAsInProgress", () => {
+  let manager: TaskManager;
+
+  beforeEach(() => {
+    manager = new TaskManager();
+
+    //Simula que el json inicia vacío
+    jest.spyOn(DAO.prototype, "loadTasks").mockResolvedValue([]);
+    jest.spyOn(DAO.prototype, "saveTasks").mockResolvedValue(true);
+    jest.spyOn(console, "error").mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    //Limpia el historial de simulaciones despues de cada prueba
+    jest.restoreAllMocks();
+  });
+  test("Debería comprobar que cambia el estado de la tarea", async () => {
+    //Inicializa una tarea durante una simulación
+    (manager as any).tasks = [
+      { id: 1, description: "Tarea 1", status: "todo" },
+    ];
+
+    const IS_IN_PROGRESS = await manager.markAsInProgress("1");
+    expect(IS_IN_PROGRESS).toBe(true);
+
+    const TASKS = (manager as any).tasks as Task[];
+    const TASK_IN_PROGRESS = TASKS.find((task) => task.id === 1);
+    expect(TASK_IN_PROGRESS).toBeDefined();
+    expect(TASK_IN_PROGRESS?.description).toBe("Tarea 1");
+    expect(TASK_IN_PROGRESS?.status).toBe("in-progress");
+  });
+
+  test("Debería comprobar que devuelve false si no encuentra la tarea con ese id", async () => {
+    //Inicializa una tarea
+    (manager as any).tasks = [
+      { id: 1, description: "Tarea 1", status: "todo" },
+    ];
+
+    const IS_IN_PROGRESS = await manager.markAsInProgress("999");
+    expect(IS_IN_PROGRESS).toBe(false);
+
+    const TASKS = (manager as any).tasks as Task[];
+    const TASK_IN_PROGRESS = TASKS.find((task) => task.id === 1);
+    expect(TASK_IN_PROGRESS).toBeDefined();
+    expect(TASK_IN_PROGRESS?.description).toBe("Tarea 1");
+    expect(TASK_IN_PROGRESS?.status).toBe("todo");
+  });
+  test("Debería lanzar un error si el almacenamiento (DAO) falla", async () => {
+    //Inicia con una tarea
+    (manager as any).tasks = [
+      { id: 1, description: "Tarea 1", status: "todo" },
+    ];
+
+    //Fuerza a guardar los cambios tras excluir la tarea a eliminar
+    jest
+      .spyOn(DAO.prototype, "saveTasks")
+      .mockRejectedValue(new Error("Disk Full"));
+
+    //Devuelve error de escritura en disco si la función no finalizó
+    await expect(manager.markAsInProgress("1")).rejects.toThrow("Disk Full");
+  });
+});
+
+// ==================== TESTS DE markAsInProgress TASK ====================
+describe("markAsDone", () => {
+  let manager: TaskManager;
+
+  beforeEach(() => {
+    manager = new TaskManager();
+
+    //Simula que el json inicia vacío
+    jest.spyOn(DAO.prototype, "loadTasks").mockResolvedValue([]);
+    jest.spyOn(DAO.prototype, "saveTasks").mockResolvedValue(true);
+    jest.spyOn(console, "error").mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    //Limpia el historial de simulaciones despues de cada prueba
+    jest.restoreAllMocks();
+  });
+  test("Debería comprobar que cambia el estado de la tarea", async () => {
+    //Inicializa una tarea durante una simulación
+    (manager as any).tasks = [
+      { id: 1, description: "Tarea 1", status: "todo" },
+    ];
+
+    const IS_DONE = await manager.markAsDone("1");
+    expect(IS_DONE).toBe(true);
+
+    const TASKS = (manager as any).tasks as Task[];
+    const TASK_DONE = TASKS.find((task) => task.id === 1);
+    expect(TASK_DONE).toBeDefined();
+    expect(TASK_DONE?.description).toBe("Tarea 1");
+    expect(TASK_DONE?.status).toBe("done");
+  });
+
+  test("Debería comprobar que devuelve false si no encuentra la tarea con ese id", async () => {
+    //Inicializa una tarea
+    (manager as any).tasks = [
+      { id: 1, description: "Tarea 1", status: "todo" },
+    ];
+
+    const IS_DONE = await manager.markAsDone("999");
+    expect(IS_DONE).toBe(false);
+
+    const TASKS = (manager as any).tasks as Task[];
+    const TASK_DONE = TASKS.find((task) => task.id === 1);
+    expect(TASK_DONE).toBeDefined();
+    expect(TASK_DONE?.description).toBe("Tarea 1");
+    expect(TASK_DONE?.status).toBe("todo");
+  });
+  test("Debería lanzar un error si el almacenamiento (DAO) falla", async () => {
+    //Inicia con una tarea
+    (manager as any).tasks = [
+      { id: 1, description: "Tarea 1", status: "todo" },
+    ];
+
+    //Fuerza a guardar los cambios tras excluir la tarea a eliminar
+    jest
+      .spyOn(DAO.prototype, "saveTasks")
+      .mockRejectedValue(new Error("Disk Full"));
+
+    //Devuelve error de escritura en disco si la función no finalizó
+    await expect(manager.markAsDone("1")).rejects.toThrow("Disk Full");
+  });
+});
+
+describe("listAllTasks", () => {
+  let manager: TaskManager;
+
+  beforeEach(() => {
+    manager = new TaskManager();
+
+    //Simula que el json inicia vacío
+    jest.spyOn(DAO.prototype, "loadTasks").mockResolvedValue([]);
+    jest.spyOn(DAO.prototype, "saveTasks").mockResolvedValue(true);
+    jest.spyOn(console, "error").mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    //Limpia el historial de simulaciones despues de cada prueba
+    jest.restoreAllMocks();
+  });
+
+  test("Debería comprobar que devuelve la lista completa de tareas", async () => {
+    (manager as any).tasks = [
+      { id: 1, description: "Tarea 1", status: "todo" },
+      { id: 2, description: "Tarea 2", status: "done" },
+    ];
+
+    const TASKS = await manager.listAllTasks();
+    expect(TASKS).toBeDefined();
+    expect(TASKS.length).toBe(2);
+    expect(TASKS[0]?.description).toBe("Tarea 1");
+    expect(TASKS[1]?.status).toBe("done");
+  });
+
+  test("Debería comprobar que devuelve un array vacío", async () => {
+    (manager as any).tasks = [];
+    const TASKS = await manager.listAllTasks();
+    expect(TASKS).toBeDefined();
+    expect(TASKS.length).toBe(0);
+  });
+});
+
+describe("listTodoTasks", () => {
+  let manager: TaskManager;
+
+  beforeEach(() => {
+    manager = new TaskManager();
+
+    //Simula que el json inicia vacío
+    jest.spyOn(DAO.prototype, "loadTasks").mockResolvedValue([]);
+    jest.spyOn(DAO.prototype, "saveTasks").mockResolvedValue(true);
+    jest.spyOn(console, "error").mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    //Limpia el historial de simulaciones despues de cada prueba
+    jest.restoreAllMocks();
+  });
+
+  test("Devería comprobar que devuelve la lista de tareas completadas", async () => {
+    (manager as any).tasks = [
+      { id: 1, description: "Tarea 1", status: "todo" },
+      { id: 2, description: "Tarea 2", status: "done" },
+    ];
+    const TODO_TASKS = await manager.listTodoTasks();
+    expect(TODO_TASKS).toBeDefined();
+    expect(TODO_TASKS.length).toBe(1);
+    expect(TODO_TASKS[0]?.status).toBe("todo");
+  });
+});
+
+describe("listDoneTasks", () => {
+  let manager: TaskManager;
+
+  beforeEach(() => {
+    manager = new TaskManager();
+
+    //Simula que el json inicia vacío
+    jest.spyOn(DAO.prototype, "loadTasks").mockResolvedValue([]);
+    jest.spyOn(DAO.prototype, "saveTasks").mockResolvedValue(true);
+    jest.spyOn(console, "error").mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    //Limpia el historial de simulaciones despues de cada prueba
+    jest.restoreAllMocks();
+  });
+
+  test("Devería comprobar que devuelve la lista de tareas completadas", async () => {
+    (manager as any).tasks = [
+      { id: 1, description: "Tarea 1", status: "todo" },
+      { id: 2, description: "Tarea 2", status: "done" },
+    ];
+    const DONE_TASKS = await manager.listDoneTasks();
+    expect(DONE_TASKS).toBeDefined();
+    expect(DONE_TASKS.length).toBe(1);
+    expect(DONE_TASKS[0]?.status).toBe("done");
   });
 });
