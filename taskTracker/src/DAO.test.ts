@@ -6,7 +6,9 @@ import fs from "node:fs/promises";
 //Simula el módulo de archivos
 jest.mock("node:fs/promises");
 
-describe("Pruebas Unitarias - Capa de Datos (DAO)", () => {
+// ==================== TESTS DE LOAD TASK ====================
+
+describe("loadTasks", () => {
   //Prepara las pruebas DAO
   let dao: DAO;
   beforeEach(() => {
@@ -14,6 +16,7 @@ describe("Pruebas Unitarias - Capa de Datos (DAO)", () => {
     dao = new DAO();
     //Limpia el historial de llamadas hantes de cada test
     jest.clearAllMocks();
+    jest.spyOn(console, "error").mockImplementation(() => {});
   });
 
   //Tests: loadTasks()
@@ -78,8 +81,20 @@ describe("Pruebas Unitarias - Capa de Datos (DAO)", () => {
     expect(TASKS[0]).toBeInstanceOf(Task);
     expect(TASKS[0]?.description).toBe("Test");
   });
+});
 
-  // TEST: saveTasks
+// ==================== TESTS DE SAVE TASK ====================
+
+describe("saveTasks", () => {
+  //Prepara las pruebas DAO
+  let dao: DAO;
+  beforeEach(() => {
+    //Inicializa DAO
+    dao = new DAO();
+    //Limpia el historial de llamadas hantes de cada test
+    jest.clearAllMocks();
+    jest.spyOn(console, "error").mockImplementation(() => {});
+  });
   test("saveTasks: Debería lanzar un error si la escritura en el disco falla", async () => {
     //Información que lanzará el error
     const WRITE_FILE_ERROR = new Error("Disk full or permission denied");

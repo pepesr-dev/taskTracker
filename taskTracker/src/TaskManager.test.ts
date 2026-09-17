@@ -14,6 +14,8 @@ describe("add", () => {
     //Simula que el json inicia vacío
     jest.spyOn(DAO.prototype, "loadTasks").mockResolvedValue([]);
     jest.spyOn(DAO.prototype, "saveTasks").mockResolvedValue(true);
+
+    jest.spyOn(console, "error").mockImplementation(() => {});
   });
 
   afterEach(() => {
@@ -23,15 +25,15 @@ describe("add", () => {
 
   //Happy path
   test("Debería añadir una nueva tarea correctamente", async () => {
-    await manager.load();
+    (manager as any).tasks = [];
 
     const NEW_ID = await manager.addTask("Buy groceries");
 
     //La nueva tarea debe tener el id 1
     expect(NEW_ID).toBe(1);
 
-    const TASKS = await manager.listAllTasks();
-    const SAVED_TASK = TASKS.find((t) => t.id === NEW_ID);
+    const TASKS = (manager as any).tasks as Task[];
+    const SAVED_TASK = TASKS.find((task) => task.id === NEW_ID);
 
     //Devolverá undefined si no encuentra la tarea.
     expect(SAVED_TASK).toBeDefined();
@@ -46,7 +48,7 @@ describe("add", () => {
       "Error, empty description",
     );
 
-    const TASKS = await manager.listAllTasks();
+    const TASKS = (manager as any).tasks as Task[];
     expect(TASKS.length).toBe(0);
   });
   //Límite de infraestructura
@@ -76,6 +78,7 @@ describe("deleteTaskById", () => {
     //Simula que el json inicia vacío
     jest.spyOn(DAO.prototype, "loadTasks").mockResolvedValue([]);
     jest.spyOn(DAO.prototype, "saveTasks").mockResolvedValue(true);
+    jest.spyOn(console, "error").mockImplementation(() => {});
   });
 
   afterEach(() => {
@@ -131,5 +134,84 @@ describe("deleteTaskById", () => {
       .mockRejectedValue(new Error("Disk Full"));
     //Devuelve error de escritura en disco si la función no finalizó
     await expect(manager.deleteTaskById("1")).rejects.toThrow("Disk Full");
+  });
+});
+
+// ==================== TESTS DE DELETE TASK ====================
+
+describe("updateTaskById", () => {
+  let manager: TaskManager;
+
+  beforeEach(() => {
+    manager = new TaskManager();
+
+    //Simula que el json inicia vacío
+    jest.spyOn(DAO.prototype, "loadTasks").mockResolvedValue([]);
+    jest.spyOn(DAO.prototype, "saveTasks").mockResolvedValue(true);
+
+    jest.spyOn(console, "error").mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    //Limpia el historial de simulaciones despues de cada prueba
+    jest.restoreAllMocks();
+  });
+  test("Debería actualizar una tarea correctamente", async () => {
+    (manager as any).tasks = [
+      { id: 1, description: "Tarea 1", status: "todo" },
+    ];
+    const IS_UPDATED = await manager.updateTaskById(1, "Tarea actualizada");
+    expect(IS_UPDATED).toBe(true);
+
+    //Obtiene las tareas
+    const TASKS = (manager as any).tasks as Task[];
+    //Busca el id de la tarea actualizada
+    const UPDATED_TASK = TASKS.find((task) => task.id === 1);
+
+    expect(UPDATED_TASK).toBeDefined();
+    expect(TASKS.length).toBe(1);
+
+    //Comprueba que cambió la descripción
+    expect(UPDATED_TASK?.description).toBe("Tarea actualizada");
+  });
+  test("Debería devolver false si no encuentra la tarea", async () => {
+    //Inicializa una tarea
+    (manager as any).tasks = [
+      { id: 1, description: "Tarea 1", status: "todo" },
+    ];
+    //Ejecuta la actualización de un id inexistente
+    const IS_UPDATED = await manager.updateTaskById(999, "Tarea 999");
+    expect(IS_UPDATED).toBe(false);
+    //Comprobar que la longitud de la lista no cambio
+    const TASKS = (manager as any).tasks as Task[];
+    expect(TASKS.length).toBe(1);
+  });
+  test("Debería lanzar un error si la descripción está vacía (Caso Límite del Diagrama)", async () => {
+    (manager as any).tasks = [
+      { id: 1, description: "Tarea 1", status: "todo" },
+    ];
+
+    await expect(manager.updateTaskById(1, "   ")).rejects.toThrow(
+      "Error, empty description",
+    );
+
+    const TASKS = (manager as any).tasks as Task[];
+    expect(TASKS.length).toBe(1);
+  });
+  test("Debería lanzar un error si el almacenamiento (DAO) falla", async () => {
+    //Inicia con una tarea
+    (manager as any).tasks = [
+      { id: 1, description: "Tarea 1", status: "todo" },
+    ];
+
+    //Fuerza a guardar los cambios tras excluir la tarea a eliminar
+    jest
+      .spyOn(DAO.prototype, "saveTasks")
+      .mockRejectedValue(new Error("Disk Full"));
+
+    //Devuelve error de escritura en disco si la función no finalizó
+    await expect(manager.updateTaskById(1, "Task 1")).rejects.toThrow(
+      "Disk Full",
+    );
   });
 });
