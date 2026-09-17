@@ -32,9 +32,9 @@ Aplicación con interfaz para gestionar mis tareas.
 - [X]  Add, Update, and Delete tasks
 - [X]  Mark a task as in progress or done
 - [X]  List all tasks
-- [ ]  List all tasks that are done
-- [ ]  List all tasks that are not done
-- [ ]  List all tasks that are in progress
+- [X]  List all tasks that are done
+- [X]  List all tasks that are not done
+- [X]  List all tasks that are in progress
 
 ## Restricciones
 
@@ -84,7 +84,7 @@ task-cli list in-progress
 
 - [X]  Instalar mi entorno de desarrollo(TSdocs + TS-jest)
 - [X]  Crear el directorio para el proyecto y el controlador de versiones.
-- [ ]  Implementar funciones básicas y probarlas todas una a una.
+- [X]  Implementar funciones básicas y probarlas todas una a una.
 - [ ]  Test y debug
 
 **Para terminar:**

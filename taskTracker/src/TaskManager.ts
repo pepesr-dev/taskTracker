@@ -22,15 +22,19 @@ export class TaskManager {
   async addTask(description: string): Promise<Number> {
     try {
       const now = new Date().toLocaleString();
+      //Validación de entradas
+      if (!description || description.trim() === "") {
+        throw new Error("Error, empty description");
+      }
 
       const NEW_ID =
         this.tasks.length > 0
           ? Math.max(...this.tasks.map((task) => task.id)) + 1
           : 1;
-      const NEW_TASK = new Task(NEW_ID, description, "todo", now, now);
+
+      const NEW_TASK: Task = new Task(NEW_ID, description, "todo", now, now);
 
       this.tasks.push(NEW_TASK);
-
       await this.dao.saveTasks(this.tasks);
 
       return Number(NEW_TASK.id);
@@ -50,19 +54,30 @@ export class TaskManager {
     taskId: Number,
     newDescription: string,
   ): Promise<boolean> {
-    const now = new Date().toLocaleString();
+    try {
+      const now = new Date().toLocaleString();
 
-    const TASK_ID = Number(taskId);
-    //Find ya pasa la nueva tarea a this.tasks
-    const TASK_TO_UPDATE = this.tasks.find((task) => task.id === TASK_ID);
+      if (!newDescription || newDescription.trim() === "") {
+        throw new Error("Error, empty description");
+      }
+      if (taskId === undefined || taskId === null) {
+        throw new Error("Error, invalid or empty taskId");
+      }
+      const TASK_ID = Number(taskId);
 
-    if (!TASK_TO_UPDATE) {
-      return false;
+      const TASK_TO_UPDATE = this.tasks.find((task) => task.id === TASK_ID);
+
+      if (!TASK_TO_UPDATE) {
+        return false;
+      }
+      TASK_TO_UPDATE.description = newDescription;
+      TASK_TO_UPDATE.updatedAt = now;
+      await this.dao.saveTasks(this.tasks);
+      return true;
+    } catch (error) {
+      console.error("Error updating task: " + error);
+      throw error;
     }
-    TASK_TO_UPDATE.description = newDescription;
-    TASK_TO_UPDATE.updatedAt = now;
-    await this.dao.saveTasks(this.tasks);
-    return true;
   }
   /**
    * Elimina la tarea indicada por el usuario mediante el id
@@ -71,10 +86,11 @@ export class TaskManager {
    */
   async deleteTaskById(idToDelete: string): Promise<boolean> {
     try {
-      const TASK_ID = Number(idToDelete);
+      if (idToDelete === undefined || idToDelete === null) {
+        throw new Error("Error, invalid or empty taskId");
+      }
 
-      //Sincroniza con el json para asegurar que trabaja con datos reales
-      await this.load();
+      const TASK_ID = Number(idToDelete);
 
       // Guardamos cuántas tareas teníamos antes de borrar
       const TOTAL_TASKS = this.tasks.length;
@@ -96,7 +112,7 @@ export class TaskManager {
   }
 
   /**
-   * Actualiza el esto de una tarea a In-progress
+   * Actualiza el estado de una tarea a In-progress
    * @param {string} idToMarkAsInProgres
    * @returns
    */
