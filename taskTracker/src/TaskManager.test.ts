@@ -216,7 +216,7 @@ describe("updateTaskById", () => {
   });
 });
 
-// ==================== TESTS DE markAsInProgress TASK ====================
+// ==================== TESTS DE MARK AS IN-PROGRESS TASK ====================
 describe("markAsInProgress", () => {
   let manager: TaskManager;
 
@@ -280,7 +280,7 @@ describe("markAsInProgress", () => {
   });
 });
 
-// ==================== TESTS DE markAsDone TASK ====================
+// ==================== TESTS DE MARK AS DONE TASK ====================
 describe("markAsDone", () => {
   let manager: TaskManager;
 
@@ -344,7 +344,7 @@ describe("markAsDone", () => {
   });
 });
 
-// ==================== TESTS DE listAllTasks TASK ====================
+// ==================== TESTS DE LIST ALL TASKS ====================
 describe("listAllTasks", () => {
   let manager: TaskManager;
 
@@ -382,7 +382,7 @@ describe("listAllTasks", () => {
     expect(TASKS.length).toBe(0);
   });
 });
-
+// ==================== TESTS DE LIST TODO TASKS ====================
 describe("listTodoTasks", () => {
   let manager: TaskManager;
 
@@ -417,7 +417,7 @@ describe("listTodoTasks", () => {
     expect(TASKS.length).toBe(0);
   });
 });
-
+// ==================== TESTS DE LIST DONE TASKS ====================
 describe("listDoneTasks", () => {
   let manager: TaskManager;
 
