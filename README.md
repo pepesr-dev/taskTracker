@@ -7,16 +7,18 @@ Aplicación que gestiona tareas almacenadas en formato json.
 
 
 ## Tecnologías utilizadas
-typescript, jest, JSON, bash
+node.js, typescript, jest, JSON, bash,
 
 ## Instalación
 
 - Descarga el repositorio: `gh repo clone pepesr-dev/taskTracker`
 - Entra en la carpeta específica de la app: `cd taskTracker/taskTracker`
+- Instalar dependencias:
+`npm install`
 - Ejemplo de ejecución: `npm run task-cli -- add "Insertar nueva tarea"`
 
 
-# Ejemplo de ejecución
+## Ejemplo de ejecución
 ```bash
 # Adding a new task
 npm run task-cli -- add "buy groceries"
@@ -112,6 +114,6 @@ task-cli list in-progress
 
 - [X]  Asegurarme de que cada funcionalidad ha sido testeada.
 - [X]  Limpiar código y agregar comentarios necesarios.
-- [X]  Escribir un buen readme.md sobre como usar mi TaskTracker - CLI.
+- [X]  Escribir un buen readme.md sobre como usar mi TaskTracker-CLI.
 
 
