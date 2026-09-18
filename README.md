@@ -1,9 +1,11 @@
 # [taskTracker - cli(roadmap.sh)](https://roadmap.sh/projects/task-tracker)
 
 Aplicación que gestiona tareas almacenadas en formato json.
-- [] Funciones probadas
-- [] Aplicación documentada
--
+- [X] Instalación probada
+- [X] Funciones probadas
+- [X] Aplicación documentada
+
+
 ## Tecnologías utilizadas
 typescript, jest, JSON, bash
 
@@ -109,7 +111,7 @@ task-cli list in-progress
 **Para terminar:**
 
 - [X]  Asegurarme de que cada funcionalidad ha sido testeada.
-- [ ]  Limpiar código y agregar comentarios necesarios.
-- [ ]  Escribir un buen readme.md sobre como usar mi TaskTracker - CLI.
+- [X]  Limpiar código y agregar comentarios necesarios.
+- [X]  Escribir un buen readme.md sobre como usar mi TaskTracker - CLI.
 
 
