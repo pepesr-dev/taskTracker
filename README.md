@@ -1,18 +1,37 @@
 # [taskTracker - cli(roadmap.sh)](https://roadmap.sh/projects/task-tracker)
 
 Aplicación que gestiona tareas almacenadas en formato json.
-
-
-## 🛠️ Tecnologías utilizadas
+- [] Funciones probadas
+- [] Aplicación documentada
+-
+## Tecnologías utilizadas
 typescript, jest, JSON, bash
 
-
-## 📦 Instalación
+## Instalación
 
 - Descarga el repositorio: `gh repo clone pepesr-dev/taskTracker`
 - Entra en la carpeta específica de la app: `cd taskTracker`
 - Ejemplo de ejecución: `npm run task-cli -- add "Insertar nueva tarea"`
 
+
+# Ejemplo de ejecución
+```bash
+# Adding a new task
+npm run task-cli -- add "buy groceries"
+# Output: Task added successfully (ID: 1)
+# Updating and deleting tasks
+npm run task-cli -- update 1 "Buy groceries and cook dinner"
+npm run task-cli -- delete 1
+# Marking a task as in progress or done
+npm run task-cli -- mark-in-progress 1
+npm run task-cli -- mark-done 1
+# Listing all tasks
+npm run task-cli -- list
+# Listing tasks by status
+npm run task-cli -- list done
+npm run task-cli -- list todo
+npm run task-cli -- list in-progress
+```
 
 ## Contribuciones
 Esta app no acepta contribuciones.
@@ -46,7 +65,7 @@ Aplicación con interfaz para gestionar mis tareas.
 - [X]  The JSON file should be created if it does not exist.
 - [X]  Use the native file system module of your programming language to interact with the JSON file.
 - [X]  Do not use any external libraries or frameworks to build this project.
-- [ ]  Ensure to handle errors and edge cases gracefully.
+- [X]  Ensure to handle errors and edge cases gracefully.
 
 ## Ejemplo
 
@@ -85,31 +104,12 @@ task-cli list in-progress
 - [X]  Instalar mi entorno de desarrollo(TSdocs + TS-jest)
 - [X]  Crear el directorio para el proyecto y el controlador de versiones.
 - [X]  Implementar funciones básicas y probarlas todas una a una.
-- [ ]  Test y debug
+- [X]  Test y debug
 
 **Para terminar:**
 
-- [ ]  Asegurarme de que cada funcionalidad ha sido testeada.
+- [X]  Asegurarme de que cada funcionalidad ha sido testeada.
 - [ ]  Limpiar código y agregar comentarios necesarios.
 - [ ]  Escribir un buen readme.md sobre como usar mi TaskTracker - CLI.
 
 
-
-# Ejemplo de ejecución
-```bash
-# Adding a new task
-npm run task-cli -- add "buy groceries"
-# Output: Task added successfully (ID: 1)
-# Updating and deleting tasks
-npm run task-cli -- update 1 "Buy groceries and cook dinner"
-npm run task-cli -- delete 1
-# Marking a task as in progress or done
-npm run task-cli -- mark-in-progress 1
-npm run task-cli -- mark-done 1
-# Listing all tasks
-npm run task-cli -- list
-# Listing tasks by status
-npm run task-cli -- list done
-npm run task-cli -- list todo
-npm run task-cli -- list in-progress
-```

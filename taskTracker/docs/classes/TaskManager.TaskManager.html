@@ -15,7 +15,7 @@
 <div class="tsd-comment tsd-typography"><p>Clase que contiene las funciones para gestionar las tareas</p>
 </div></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/pepesr-dev/taskTracker/blob/d733303a0ce10b3c0df950f03dc32a7a6827fa70/taskTracker/src/TaskManager.ts#L7">TaskManager.ts:7</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/pepesr-dev/taskTracker/blob/2d9654957ecb8e5c9009394ab18504dd5b1d3b73/taskTracker/src/TaskManager.ts#L7">TaskManager.ts:7</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-accordion" open><summary class="tsd-accordion-summary tsd-index-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg>
@@ -55,7 +55,7 @@
 <h3 class="tsd-anchor-link" id="addtask"><span>add<wbr/>Task</span><a href="#addtask" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="">
-<div class="tsd-signature tsd-anchor-link" id="addtask-1"><span class="tsd-kind-call-signature">addTask</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">description</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Number</span><span class="tsd-signature-symbol">&gt;</span><a href="#addtask-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></div>
+<div class="tsd-signature tsd-anchor-link" id="addtask-1"><span class="tsd-kind-call-signature">addTask</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">description</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><a href="#addtask-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></div>
 <div class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Función que almacena una tarea en el archivo json</p>
 </div>
@@ -65,27 +65,30 @@
 <li><span><span class="tsd-kind-parameter">description</span>: <span class="tsd-signature-type">string</span></span>
 <div class="tsd-comment tsd-typography"><p>Descripción de la tarea</p>
 </div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Number</span><span class="tsd-signature-symbol">&gt;</span></h4><ul>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4><ul>
 <li>Devuelve true si el proceso se completó adecuadamente</li>
 </ul>
 <aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/pepesr-dev/taskTracker/blob/d733303a0ce10b3c0df950f03dc32a7a6827fa70/taskTracker/src/TaskManager.ts#L22">TaskManager.ts:22</a></li></ul></aside></div></li></ul></section>
+<li>Defined in <a href="https://github.com/pepesr-dev/taskTracker/blob/2d9654957ecb8e5c9009394ab18504dd5b1d3b73/taskTracker/src/TaskManager.ts#L22">TaskManager.ts:22</a></li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="deletetaskbyid"><span>delete<wbr/>Task<wbr/>By<wbr/>Id</span><a href="#deletetaskbyid" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="">
 <div class="tsd-signature tsd-anchor-link" id="deletetaskbyid-1"><span class="tsd-kind-call-signature">deleteTaskById</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">idToDelete</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><a href="#deletetaskbyid-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></div>
 <div class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>Elimina la tarea con el id indicado</p>
+<div class="tsd-comment tsd-typography"><p>Elimina la tarea indicada por el usuario mediante el id</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
-<li><span><span class="tsd-kind-parameter">idToDelete</span>: <span class="tsd-signature-type">string</span></span></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<li><span><span class="tsd-kind-parameter">idToDelete</span>: <span class="tsd-signature-type">string</span></span>
+<div class="tsd-comment tsd-typography"><p>ID introducido por el usuario</p>
+</div></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4><p>Devuelve verdadero si la tarea existía y fue eliminada.</p>
+<aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/pepesr-dev/taskTracker/blob/d733303a0ce10b3c0df950f03dc32a7a6827fa70/taskTracker/src/TaskManager.ts#L72">TaskManager.ts:72</a></li></ul></aside></div></li></ul></section>
+<li>Defined in <a href="https://github.com/pepesr-dev/taskTracker/blob/2d9654957ecb8e5c9009394ab18504dd5b1d3b73/taskTracker/src/TaskManager.ts#L85">TaskManager.ts:85</a></li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="listalltasks"><span>list<wbr/>All<wbr/>Tasks</span><a href="#listalltasks" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -96,7 +99,7 @@
 </div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Task.Task.html" class="tsd-signature-type tsd-kind-class">Task</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/pepesr-dev/taskTracker/blob/d733303a0ce10b3c0df950f03dc32a7a6827fa70/taskTracker/src/TaskManager.ts#L124">TaskManager.ts:124</a></li></ul></aside></div></li></ul></section>
+<li>Defined in <a href="https://github.com/pepesr-dev/taskTracker/blob/2d9654957ecb8e5c9009394ab18504dd5b1d3b73/taskTracker/src/TaskManager.ts#L169">TaskManager.ts:169</a></li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="listdonetasks"><span>list<wbr/>Done<wbr/>Tasks</span><a href="#listdonetasks" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -107,7 +110,7 @@
 </div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Task.Task.html" class="tsd-signature-type tsd-kind-class">Task</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/pepesr-dev/taskTracker/blob/d733303a0ce10b3c0df950f03dc32a7a6827fa70/taskTracker/src/TaskManager.ts#L158">TaskManager.ts:158</a></li></ul></aside></div></li></ul></section>
+<li>Defined in <a href="https://github.com/pepesr-dev/taskTracker/blob/2d9654957ecb8e5c9009394ab18504dd5b1d3b73/taskTracker/src/TaskManager.ts#L197">TaskManager.ts:197</a></li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="listinprogresstasks"><span>list<wbr/>In<wbr/>Progress<wbr/>Tasks</span><a href="#listinprogresstasks" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -118,7 +121,7 @@
 </div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Task.Task.html" class="tsd-signature-type tsd-kind-class">Task</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/pepesr-dev/taskTracker/blob/d733303a0ce10b3c0df950f03dc32a7a6827fa70/taskTracker/src/TaskManager.ts#L144">TaskManager.ts:144</a></li></ul></aside></div></li></ul></section>
+<li>Defined in <a href="https://github.com/pepesr-dev/taskTracker/blob/2d9654957ecb8e5c9009394ab18504dd5b1d3b73/taskTracker/src/TaskManager.ts#L185">TaskManager.ts:185</a></li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="listtodotasks"><span>list<wbr/>Todo<wbr/>Tasks</span><a href="#listtodotasks" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -129,7 +132,7 @@
 </div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Task.Task.html" class="tsd-signature-type tsd-kind-class">Task</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/pepesr-dev/taskTracker/blob/d733303a0ce10b3c0df950f03dc32a7a6827fa70/taskTracker/src/TaskManager.ts#L133">TaskManager.ts:133</a></li></ul></aside></div></li></ul></section>
+<li>Defined in <a href="https://github.com/pepesr-dev/taskTracker/blob/2d9654957ecb8e5c9009394ab18504dd5b1d3b73/taskTracker/src/TaskManager.ts#L176">TaskManager.ts:176</a></li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="load"><span>load</span><a href="#load" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -138,12 +141,12 @@
 <div class="tsd-description">
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/pepesr-dev/taskTracker/blob/d733303a0ce10b3c0df950f03dc32a7a6827fa70/taskTracker/src/TaskManager.ts#L13">TaskManager.ts:13</a></li></ul></aside></div></li></ul></section>
+<li>Defined in <a href="https://github.com/pepesr-dev/taskTracker/blob/2d9654957ecb8e5c9009394ab18504dd5b1d3b73/taskTracker/src/TaskManager.ts#L13">TaskManager.ts:13</a></li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="markasdone"><span>mark<wbr/>As<wbr/>Done</span><a href="#markasdone" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="">
-<div class="tsd-signature tsd-anchor-link" id="markasdone-1"><span class="tsd-kind-call-signature">markAsDone</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">idToMarkAsDone</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Boolean</span><span class="tsd-signature-symbol">&gt;</span><a href="#markasdone-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></div>
+<div class="tsd-signature tsd-anchor-link" id="markasdone-1"><span class="tsd-kind-call-signature">markAsDone</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">idToMarkAsDone</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><a href="#markasdone-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></div>
 <div class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Actualiza el esto de una tarea a Done</p>
 </div>
@@ -151,24 +154,24 @@
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li><span><span class="tsd-kind-parameter">idToMarkAsDone</span>: <span class="tsd-signature-type">string</span></span></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Boolean</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/pepesr-dev/taskTracker/blob/d733303a0ce10b3c0df950f03dc32a7a6827fa70/taskTracker/src/TaskManager.ts#L107">TaskManager.ts:107</a></li></ul></aside></div></li></ul></section>
+<li>Defined in <a href="https://github.com/pepesr-dev/taskTracker/blob/2d9654957ecb8e5c9009394ab18504dd5b1d3b73/taskTracker/src/TaskManager.ts#L143">TaskManager.ts:143</a></li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="markasinprogress"><span>mark<wbr/>As<wbr/>In<wbr/>Progress</span><a href="#markasinprogress" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="">
-<div class="tsd-signature tsd-anchor-link" id="markasinprogress-1"><span class="tsd-kind-call-signature">markAsInProgress</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">idToMarkAsInProgres</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Boolean</span><span class="tsd-signature-symbol">&gt;</span><a href="#markasinprogress-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></div>
+<div class="tsd-signature tsd-anchor-link" id="markasinprogress-1"><span class="tsd-kind-call-signature">markAsInProgress</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">idToMarkAsInProgres</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><a href="#markasinprogress-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></div>
 <div class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>Actualiza el esto de una tarea a In-progress</p>
+<div class="tsd-comment tsd-typography"><p>Actualiza el estado de una tarea a In-progress</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li><span><span class="tsd-kind-parameter">idToMarkAsInProgres</span>: <span class="tsd-signature-type">string</span></span></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Boolean</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/pepesr-dev/taskTracker/blob/d733303a0ce10b3c0df950f03dc32a7a6827fa70/taskTracker/src/TaskManager.ts#L90">TaskManager.ts:90</a></li></ul></aside></div></li></ul></section>
+<li>Defined in <a href="https://github.com/pepesr-dev/taskTracker/blob/2d9654957ecb8e5c9009394ab18504dd5b1d3b73/taskTracker/src/TaskManager.ts#L117">TaskManager.ts:117</a></li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="updatetaskbyid"><span>update<wbr/>Task<wbr/>By<wbr/>Id</span><a href="#updatetaskbyid" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -181,14 +184,18 @@ id introducido</p>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
-<li><span><span class="tsd-kind-parameter">taskId</span>: <span class="tsd-signature-type">Number</span></span></li>
-<li><span><span class="tsd-kind-parameter">newDescription</span>: <span class="tsd-signature-type">string</span></span></li></ul></div>
+<li><span><span class="tsd-kind-parameter">taskId</span>: <span class="tsd-signature-type">Number</span></span>
+<div class="tsd-comment tsd-typography"><p>ID de la tarea</p>
+</div></li>
+<li><span><span class="tsd-kind-parameter">newDescription</span>: <span class="tsd-signature-type">string</span></span>
+<div class="tsd-comment tsd-typography"><p>Nueva descripción de la tarea</p>
+</div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4><ul>
-<li>true | false</li>
+<li>Devuelve verdadero si la tarea fue actualizada</li>
 </ul>
 <aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/pepesr-dev/taskTracker/blob/d733303a0ce10b3c0df950f03dc32a7a6827fa70/taskTracker/src/TaskManager.ts#L49">TaskManager.ts:49</a></li></ul></aside></div></li></ul></section></section></details></div>
+<li>Defined in <a href="https://github.com/pepesr-dev/taskTracker/blob/2d9654957ecb8e5c9009394ab18504dd5b1d3b73/taskTracker/src/TaskManager.ts#L53">TaskManager.ts:53</a></li></ul></aside></div></li></ul></section></section></details></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">

@@ -18,6 +18,10 @@
 <li>Entra en la carpeta específica de la app: <code>cd taskTracker</code></li>
 <li>Ejemplo de ejecución: <code>npm run task-cli -- add &quot;Insertar nueva tarea&quot;</code></li>
 </ul>
+<h1 id="ejemplo-de-ejecución" class="tsd-anchor-link">Ejemplo de ejecución<a href="#ejemplo-de-ejecución" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h1>
+<pre><code class="bash"><span class="hl-0"># Adding a new task</span><br/><span class="hl-1">npm</span><span class="hl-2"> </span><span class="hl-3">run</span><span class="hl-2"> </span><span class="hl-3">task-cli</span><span class="hl-2"> </span><span class="hl-4">--</span><span class="hl-2"> </span><span class="hl-3">add</span><span class="hl-2"> </span><span class="hl-3">&quot;buy groceries&quot;</span><br/><span class="hl-0"># Output: Task added successfully (ID: 1)</span><br/><span class="hl-0"># Updating and deleting tasks</span><br/><span class="hl-1">npm</span><span class="hl-2"> </span><span class="hl-3">run</span><span class="hl-2"> </span><span class="hl-3">task-cli</span><span class="hl-2"> </span><span class="hl-4">--</span><span class="hl-2"> </span><span class="hl-3">update</span><span class="hl-2"> </span><span class="hl-5">1</span><span class="hl-2"> </span><span class="hl-3">&quot;Buy groceries and cook dinner&quot;</span><br/><span class="hl-1">npm</span><span class="hl-2"> </span><span class="hl-3">run</span><span class="hl-2"> </span><span class="hl-3">task-cli</span><span class="hl-2"> </span><span class="hl-4">--</span><span class="hl-2"> </span><span class="hl-3">delete</span><span class="hl-2"> </span><span class="hl-5">1</span><br/><span class="hl-0"># Marking a task as in progress or done</span><br/><span class="hl-1">npm</span><span class="hl-2"> </span><span class="hl-3">run</span><span class="hl-2"> </span><span class="hl-3">task-cli</span><span class="hl-2"> </span><span class="hl-4">--</span><span class="hl-2"> </span><span class="hl-3">mark-in-progress</span><span class="hl-2"> </span><span class="hl-5">1</span><br/><span class="hl-1">npm</span><span class="hl-2"> </span><span class="hl-3">run</span><span class="hl-2"> </span><span class="hl-3">task-cli</span><span class="hl-2"> </span><span class="hl-4">--</span><span class="hl-2"> </span><span class="hl-3">mark-done</span><span class="hl-2"> </span><span class="hl-5">1</span><br/><span class="hl-0"># Listing all tasks</span><br/><span class="hl-1">npm</span><span class="hl-2"> </span><span class="hl-3">run</span><span class="hl-2"> </span><span class="hl-3">task-cli</span><span class="hl-2"> </span><span class="hl-4">--</span><span class="hl-2"> </span><span class="hl-3">list</span><br/><span class="hl-0"># Listing tasks by status</span><br/><span class="hl-1">npm</span><span class="hl-2"> </span><span class="hl-3">run</span><span class="hl-2"> </span><span class="hl-3">task-cli</span><span class="hl-2"> </span><span class="hl-4">--</span><span class="hl-2"> </span><span class="hl-3">list</span><span class="hl-2"> </span><span class="hl-3">done</span><br/><span class="hl-1">npm</span><span class="hl-2"> </span><span class="hl-3">run</span><span class="hl-2"> </span><span class="hl-3">task-cli</span><span class="hl-2"> </span><span class="hl-4">--</span><span class="hl-2"> </span><span class="hl-3">list</span><span class="hl-2"> </span><span class="hl-3">todo</span><br/><span class="hl-1">npm</span><span class="hl-2"> </span><span class="hl-3">run</span><span class="hl-2"> </span><span class="hl-3">task-cli</span><span class="hl-2"> </span><span class="hl-4">--</span><span class="hl-2"> </span><span class="hl-3">list</span><span class="hl-2"> </span><span class="hl-3">in-progress</span>
+</code><button type="button">Copy</button></pre>
+
 <h2 id="contribuciones" class="tsd-anchor-link">Contribuciones<a href="#contribuciones" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
 <p>Esta app no acepta contribuciones.</p>
 <hr>
@@ -35,9 +39,9 @@
 <li>[X]  Add, Update, and Delete tasks</li>
 <li>[X]  Mark a task as in progress or done</li>
 <li>[X]  List all tasks</li>
-<li>[ ]  List all tasks that are done</li>
-<li>[ ]  List all tasks that are not done</li>
-<li>[ ]  List all tasks that are in progress</li>
+<li>[X]  List all tasks that are done</li>
+<li>[X]  List all tasks that are not done</li>
+<li>[X]  List all tasks that are in progress</li>
 </ul>
 <h2 id="restricciones" class="tsd-anchor-link">Restricciones<a href="#restricciones" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
 <ul>
@@ -49,11 +53,11 @@
 <li>[X]  The JSON file should be created if it does not exist.</li>
 <li>[X]  Use the native file system module of your programming language to interact with the JSON file.</li>
 <li>[X]  Do not use any external libraries or frameworks to build this project.</li>
-<li>[ ]  Ensure to handle errors and edge cases gracefully.</li>
+<li>[X]  Ensure to handle errors and edge cases gracefully.</li>
 </ul>
 <h2 id="ejemplo" class="tsd-anchor-link">Ejemplo<a href="#ejemplo" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
 <p>Lista de comandos y su uso:</p>
-<pre><code class="bash"><span class="hl-0"># Adding a new task</span><br/><span class="hl-1">task-cli</span><span class="hl-2"> </span><span class="hl-3">add</span><span class="hl-2"> </span><span class="hl-3">&quot;Buy groceries&quot;</span><br/><span class="hl-0"># Output: Task added successfully (ID: 1)</span><br/><span class="hl-0"># Updating and deleting tasks</span><br/><span class="hl-1">task-cli</span><span class="hl-2"> </span><span class="hl-3">update</span><span class="hl-2"> </span><span class="hl-4">1</span><span class="hl-2"> </span><span class="hl-3">&quot;Buy groceries and cook dinner&quot;</span><br/><span class="hl-1">task-cli</span><span class="hl-2"> </span><span class="hl-3">delete</span><span class="hl-2"> </span><span class="hl-4">1</span><br/><span class="hl-0"># Marking a task as in progress or done</span><br/><span class="hl-1">task-cli</span><span class="hl-2"> </span><span class="hl-3">mark-in-progress</span><span class="hl-2"> </span><span class="hl-4">1</span><br/><span class="hl-1">task-cli</span><span class="hl-2"> </span><span class="hl-3">mark-done</span><span class="hl-2"> </span><span class="hl-4">1</span><br/><span class="hl-0"># Listing all tasks</span><br/><span class="hl-1">task-cli</span><span class="hl-2"> </span><span class="hl-3">list</span><br/><span class="hl-0"># Listing tasks by status</span><br/><span class="hl-1">task-cli</span><span class="hl-2"> </span><span class="hl-3">list</span><span class="hl-2"> </span><span class="hl-3">done</span><br/><span class="hl-1">task-cli</span><span class="hl-2"> </span><span class="hl-3">list</span><span class="hl-2"> </span><span class="hl-3">todo</span><br/><span class="hl-1">task-cli</span><span class="hl-2"> </span><span class="hl-3">list</span><span class="hl-2"> </span><span class="hl-3">in-progress</span>
+<pre><code class="bash"><span class="hl-0"># Adding a new task</span><br/><span class="hl-1">task-cli</span><span class="hl-2"> </span><span class="hl-3">add</span><span class="hl-2"> </span><span class="hl-3">&quot;Buy groceries&quot;</span><br/><span class="hl-0"># Output: Task added successfully (ID: 1)</span><br/><span class="hl-0"># Updating and deleting tasks</span><br/><span class="hl-1">task-cli</span><span class="hl-2"> </span><span class="hl-3">update</span><span class="hl-2"> </span><span class="hl-5">1</span><span class="hl-2"> </span><span class="hl-3">&quot;Buy groceries and cook dinner&quot;</span><br/><span class="hl-1">task-cli</span><span class="hl-2"> </span><span class="hl-3">delete</span><span class="hl-2"> </span><span class="hl-5">1</span><br/><span class="hl-0"># Marking a task as in progress or done</span><br/><span class="hl-1">task-cli</span><span class="hl-2"> </span><span class="hl-3">mark-in-progress</span><span class="hl-2"> </span><span class="hl-5">1</span><br/><span class="hl-1">task-cli</span><span class="hl-2"> </span><span class="hl-3">mark-done</span><span class="hl-2"> </span><span class="hl-5">1</span><br/><span class="hl-0"># Listing all tasks</span><br/><span class="hl-1">task-cli</span><span class="hl-2"> </span><span class="hl-3">list</span><br/><span class="hl-0"># Listing tasks by status</span><br/><span class="hl-1">task-cli</span><span class="hl-2"> </span><span class="hl-3">list</span><span class="hl-2"> </span><span class="hl-3">done</span><br/><span class="hl-1">task-cli</span><span class="hl-2"> </span><span class="hl-3">list</span><span class="hl-2"> </span><span class="hl-3">todo</span><br/><span class="hl-1">task-cli</span><span class="hl-2"> </span><span class="hl-3">list</span><span class="hl-2"> </span><span class="hl-3">in-progress</span>
 </code><button type="button">Copy</button></pre>
 
 <h2 id="propiedades-de-las-tareas" class="tsd-anchor-link">Propiedades de las tareas<a href="#propiedades-de-las-tareas" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
@@ -69,19 +73,15 @@
 <ul>
 <li>[X]  Instalar mi entorno de desarrollo(TSdocs + TS-jest)</li>
 <li>[X]  Crear el directorio para el proyecto y el controlador de versiones.</li>
-<li>[ ]  Implementar funciones básicas y probarlas todas una a una.</li>
-<li>[ ]  Test y debug</li>
+<li>[X]  Implementar funciones básicas y probarlas todas una a una.</li>
+<li>[X]  Test y debug</li>
 </ul>
 <p><strong>Para terminar:</strong></p>
 <ul>
-<li>[ ]  Asegurarme de que cada funcionalidad ha sido testeada.</li>
+<li>[X]  Asegurarme de que cada funcionalidad ha sido testeada.</li>
 <li>[ ]  Limpiar código y agregar comentarios necesarios.</li>
 <li>[ ]  Escribir un buen <a href="http://readme.md">readme.md</a> sobre como usar mi TaskTracker - CLI.</li>
 </ul>
-<h1 id="ejemplo-de-ejecución" class="tsd-anchor-link">Ejemplo de ejecución<a href="#ejemplo-de-ejecución" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h1>
-<pre><code class="bash"><span class="hl-0"># Adding a new task</span><br/><span class="hl-1">npm</span><span class="hl-2"> </span><span class="hl-3">run</span><span class="hl-2"> </span><span class="hl-3">task-cli</span><span class="hl-2"> </span><span class="hl-5">--</span><span class="hl-2"> </span><span class="hl-3">add</span><span class="hl-2"> </span><span class="hl-3">&quot;buy groceries&quot;</span><br/><span class="hl-0"># Output: Task added successfully (ID: 1)</span><br/><span class="hl-0"># Updating and deleting tasks</span><br/><span class="hl-1">npm</span><span class="hl-2"> </span><span class="hl-3">run</span><span class="hl-2"> </span><span class="hl-3">task-cli</span><span class="hl-2"> </span><span class="hl-5">--</span><span class="hl-2"> </span><span class="hl-3">update</span><span class="hl-2"> </span><span class="hl-4">1</span><span class="hl-2"> </span><span class="hl-3">&quot;Buy groceries and cook dinner&quot;</span><br/><span class="hl-1">npm</span><span class="hl-2"> </span><span class="hl-3">run</span><span class="hl-2"> </span><span class="hl-3">task-cli</span><span class="hl-2"> </span><span class="hl-5">--</span><span class="hl-2"> </span><span class="hl-3">delete</span><span class="hl-2"> </span><span class="hl-4">1</span><br/><span class="hl-0"># Marking a task as in progress or done</span><br/><span class="hl-1">npm</span><span class="hl-2"> </span><span class="hl-3">run</span><span class="hl-2"> </span><span class="hl-3">task-cli</span><span class="hl-2"> </span><span class="hl-5">--</span><span class="hl-2"> </span><span class="hl-3">mark-in-progress</span><span class="hl-2"> </span><span class="hl-4">1</span><br/><span class="hl-1">npm</span><span class="hl-2"> </span><span class="hl-3">run</span><span class="hl-2"> </span><span class="hl-3">task-cli</span><span class="hl-2"> </span><span class="hl-5">--</span><span class="hl-2"> </span><span class="hl-3">mark-done</span><span class="hl-2"> </span><span class="hl-4">1</span><br/><span class="hl-0"># Listing all tasks</span><br/><span class="hl-1">npm</span><span class="hl-2"> </span><span class="hl-3">run</span><span class="hl-2"> </span><span class="hl-3">task-cli</span><span class="hl-2"> </span><span class="hl-5">--</span><span class="hl-2"> </span><span class="hl-3">list</span><br/><span class="hl-0"># Listing tasks by status</span><br/><span class="hl-1">npm</span><span class="hl-2"> </span><span class="hl-3">run</span><span class="hl-2"> </span><span class="hl-3">task-cli</span><span class="hl-2"> </span><span class="hl-5">--</span><span class="hl-2"> </span><span class="hl-3">list</span><span class="hl-2"> </span><span class="hl-3">done</span><br/><span class="hl-1">npm</span><span class="hl-2"> </span><span class="hl-3">run</span><span class="hl-2"> </span><span class="hl-3">task-cli</span><span class="hl-2"> </span><span class="hl-5">--</span><span class="hl-2"> </span><span class="hl-3">list</span><span class="hl-2"> </span><span class="hl-3">todo</span><br/><span class="hl-1">npm</span><span class="hl-2"> </span><span class="hl-3">run</span><span class="hl-2"> </span><span class="hl-3">task-cli</span><span class="hl-2"> </span><span class="hl-5">--</span><span class="hl-2"> </span><span class="hl-3">list</span><span class="hl-2"> </span><span class="hl-3">in-progress</span>
-</code><button type="button">Copy</button></pre>
-
 </div></div>
 <div class="col-sidebar">
 <div class="page-menu">
@@ -100,14 +100,15 @@
 <div class="tsd-accordion-details"><a href="#tasktracker-cliroadmapsh"><span>task<wbr/>Tracker -<wbr/> cli(roadmap.sh)</span></a>
 <ul>
 <li><a href="#🛠️-tecnologías-utilizadas"><span>🛠️ <wbr/>Tecnologías utilizadas</span></a></li>
-<li><a href="#📦-instalación"><span>📦 <wbr/>Instalación</span></a></li>
+<li><a href="#📦-instalación"><span>📦 <wbr/>Instalación</span></a></li></ul><a href="#ejemplo-de-ejecución"><span>Ejemplo de ejecución</span></a>
+<ul>
 <li><a href="#contribuciones"><span>Contribuciones</span></a></li></ul><a href="#tasktracker-cli-descripción-de-roadmash"><span>Task<wbr/>Tracker -<wbr/> <wbr/>CLI (descripción de roadma.sh)</span></a>
 <ul>
 <li><a href="#requisitos"><span>Requisitos</span></a></li>
 <li><a href="#funciones"><span>Funciones:</span></a></li>
 <li><a href="#restricciones"><span>Restricciones</span></a></li>
 <li><a href="#ejemplo"><span>Ejemplo</span></a></li>
-<li><a href="#propiedades-de-las-tareas"><span>Propiedades de las tareas</span></a></li></ul><a href="#empezar"><span>Empezar</span></a><a href="#ejemplo-de-ejecución"><span>Ejemplo de ejecución</span></a></div></details></div>
+<li><a href="#propiedades-de-las-tareas"><span>Propiedades de las tareas</span></a></li></ul><a href="#empezar"><span>Empezar</span></a></div></details></div>
 <div class="site-menu">
 <nav class="tsd-navigation"><a href="modules.html">tasktracker</a>
 <ul class="tsd-small-nested-navigation" id="tsd-nav-container">

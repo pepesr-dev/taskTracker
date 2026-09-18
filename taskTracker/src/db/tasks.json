@@ -1,9 +1,9 @@
 [
   {
-    "id": 1,
-    "description": "Probar funcion de actualización de tareas",
-    "status": "done",
-    "createdAt": "10/9/2026, 19:25:26",
-    "updatedAt": "10/9/2026, 19:26:30"
+    "id": 2,
+    "description": "salir a comprar pan",
+    "status": "todo",
+    "createdAt": "18/9/2026, 10:31:46",
+    "updatedAt": "18/9/2026, 10:33:02"
   }
 ]

@@ -280,7 +280,7 @@ describe("markAsInProgress", () => {
   });
 });
 
-// ==================== TESTS DE markAsInProgress TASK ====================
+// ==================== TESTS DE markAsDone TASK ====================
 describe("markAsDone", () => {
   let manager: TaskManager;
 
@@ -344,6 +344,7 @@ describe("markAsDone", () => {
   });
 });
 
+// ==================== TESTS DE listAllTasks TASK ====================
 describe("listAllTasks", () => {
   let manager: TaskManager;
 
@@ -399,7 +400,7 @@ describe("listTodoTasks", () => {
     jest.restoreAllMocks();
   });
 
-  test("Devería comprobar que devuelve la lista de tareas completadas", async () => {
+  test("Devería comprobar que devuelve la lista de tareas sin hacer", async () => {
     (manager as any).tasks = [
       { id: 1, description: "Tarea 1", status: "todo" },
       { id: 2, description: "Tarea 2", status: "done" },
@@ -408,6 +409,12 @@ describe("listTodoTasks", () => {
     expect(TODO_TASKS).toBeDefined();
     expect(TODO_TASKS.length).toBe(1);
     expect(TODO_TASKS[0]?.status).toBe("todo");
+  });
+  test("Debería comprobar que devuelve un array vacío", async () => {
+    (manager as any).tasks = [];
+    const TASKS = await manager.listTodoTasks();
+    expect(TASKS).toBeDefined();
+    expect(TASKS.length).toBe(0);
   });
 });
 
@@ -437,5 +444,11 @@ describe("listDoneTasks", () => {
     expect(DONE_TASKS).toBeDefined();
     expect(DONE_TASKS.length).toBe(1);
     expect(DONE_TASKS[0]?.status).toBe("done");
+  });
+  test("Debería comprobar que devuelve un array vacío", async () => {
+    (manager as any).tasks = [];
+    const TASKS = await manager.listDoneTasks();
+    expect(TASKS).toBeDefined();
+    expect(TASKS.length).toBe(0);
   });
 });

@@ -19,7 +19,7 @@ export class TaskManager {
    * @param {String} description - Descripción de la tarea
    * @returns {boolean} - Devuelve true si el proceso se completó adecuadamente
    */
-  async addTask(description: string): Promise<Number> {
+  async addTask(description: string): Promise<number> {
     try {
       const now = new Date().toLocaleString();
       //Validación de entradas
@@ -48,15 +48,13 @@ export class TaskManager {
    * id introducido
    * @param {number} taskId - ID de la tarea
    * @param {string} newDescription - Nueva descripción de la tarea
-   * @returns {Boolean} - Devuelve verdadero si la tarea fue actualizada
+   * @returns {boolean} - Devuelve verdadero si la tarea fue actualizada
    */
   async updateTaskById(
     taskId: Number,
     newDescription: string,
   ): Promise<boolean> {
     try {
-      const now = new Date().toLocaleString();
-
       if (!newDescription || newDescription.trim() === "") {
         throw new Error("Error, empty description");
       }
@@ -71,7 +69,7 @@ export class TaskManager {
         return false;
       }
       TASK_TO_UPDATE.description = newDescription;
-      TASK_TO_UPDATE.updatedAt = now;
+      TASK_TO_UPDATE.updatedAt = new Date().toLocaleString();
       await this.dao.saveTasks(this.tasks);
       return true;
     } catch (error) {
@@ -116,7 +114,7 @@ export class TaskManager {
    * @param {string} idToMarkAsInProgres
    * @returns
    */
-  async markAsInProgress(idToMarkAsInProgres: string): Promise<Boolean> {
+  async markAsInProgress(idToMarkAsInProgres: string): Promise<boolean> {
     try {
       if (idToMarkAsInProgres === undefined || idToMarkAsInProgres === null) {
         throw new Error("Error, invalid or empty idToMarkAsInProgres");
@@ -129,6 +127,7 @@ export class TaskManager {
       }
 
       TASK_TO_UPDATE.status = "in-progress";
+      TASK_TO_UPDATE.updatedAt = new Date().toLocaleString();
       await this.dao.saveTasks(this.tasks);
       return true;
     } catch (error) {
@@ -141,7 +140,7 @@ export class TaskManager {
    * @param {string} idToMarkAsDone
    * @returns
    */
-  async markAsDone(idToMarkAsDone: string): Promise<Boolean> {
+  async markAsDone(idToMarkAsDone: string): Promise<boolean> {
     try {
       if (idToMarkAsDone === undefined || idToMarkAsDone === null) {
         throw new Error("Error, invalid or empty idToMarkAsDone");
@@ -154,6 +153,7 @@ export class TaskManager {
       }
 
       TASK_TO_UPDATE.status = "done";
+      TASK_TO_UPDATE.updatedAt = new Date().toLocaleString();
       await this.dao.saveTasks(this.tasks);
       return true;
     } catch (error) {
@@ -167,42 +167,27 @@ export class TaskManager {
    * @returns
    */
   async listAllTasks(): Promise<Task[]> {
-    try {
-      return this.tasks;
-    } catch (error) {
-      console.error("Error loading tasks: " + error);
-      throw error;
-    }
+    return this.tasks;
   }
   /**
    * Obtiene solo las tareas con estado Todo
    * @returns
    */
   async listTodoTasks(): Promise<Task[]> {
-    try {
-      const TODO_TASKS = this.tasks.filter((task) => task.status === "todo");
+    const TODO_TASKS = this.tasks.filter((task) => task.status === "todo");
 
-      return TODO_TASKS;
-    } catch (error) {
-      console.error("Error loading todoTasks: " + error);
-      throw error;
-    }
+    return TODO_TASKS;
   }
   /**
    * Obtiene solo las tareas con estado In-progress
    * @returns
    */
   async listInProgressTasks(): Promise<Task[]> {
-    try {
-      const IN_PROGRESS_TASKS = this.tasks.filter(
-        (task) => task.status === "in-progress",
-      );
+    const IN_PROGRESS_TASKS = this.tasks.filter(
+      (task) => task.status === "in-progress",
+    );
 
-      return IN_PROGRESS_TASKS;
-    } catch (error) {
-      console.error("Error loading inProgressTasks: " + error);
-      throw error;
-    }
+    return IN_PROGRESS_TASKS;
   }
 
   /**
@@ -210,13 +195,8 @@ export class TaskManager {
    * @returns
    */
   async listDoneTasks(): Promise<Task[]> {
-    try {
-      const DONE_TASKS = this.tasks.filter((task) => task.status === "done");
+    const DONE_TASKS = this.tasks.filter((task) => task.status === "done");
 
-      return DONE_TASKS;
-    } catch (error) {
-      console.error("Error loading doneTasks: " + error);
-      throw error;
-    }
+    return DONE_TASKS;
   }
 }

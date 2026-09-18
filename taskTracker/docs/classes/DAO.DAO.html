@@ -12,7 +12,7 @@
 <li><a href="" aria-current="page">DAO</a></li></ul>
 <h1>Class DAO</h1></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/pepesr-dev/taskTracker/blob/d733303a0ce10b3c0df950f03dc32a7a6827fa70/taskTracker/src/DAO.ts#L11">DAO.ts:11</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/pepesr-dev/taskTracker/blob/2d9654957ecb8e5c9009394ab18504dd5b1d3b73/taskTracker/src/DAO.ts#L11">DAO.ts:11</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-accordion" open><summary class="tsd-accordion-summary tsd-index-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg>
@@ -46,31 +46,41 @@
 <li class="">
 <div class="tsd-signature tsd-anchor-link" id="loadtasks-1"><span class="tsd-kind-call-signature">loadTasks</span><span class="tsd-signature-symbol">()</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Task.Task.html" class="tsd-signature-type tsd-kind-class">Task</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><a href="#loadtasks-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></div>
 <div class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>Carga las tareas almacenada en json</p>
+<div class="tsd-comment tsd-typography"><p>Carga las tareas almacenadas en el archivo JSON.</p>
 </div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Task.Task.html" class="tsd-signature-type tsd-kind-class">Task</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Task.Task.html" class="tsd-signature-type tsd-kind-class">Task</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4><p>Arreglo de instancias de Task.</p>
+
+<div class="tsd-comment tsd-typography">
+<div class="tsd-tag-throws">
+<h4 class="tsd-anchor-link" id="throws">Throws<a href="#throws" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4><p>Si el archivo JSON está corrupto.</p>
+</div>
+<div class="tsd-tag-throws">
+<h4 class="tsd-anchor-link" id="throws-1">Throws<a href="#throws-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4><p>Si ocurre un fallo crítico de lectura o permisos.</p>
+</div></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/pepesr-dev/taskTracker/blob/d733303a0ce10b3c0df950f03dc32a7a6827fa70/taskTracker/src/DAO.ts#L16">DAO.ts:16</a></li></ul></aside></div></li></ul></section>
+<li>Defined in <a href="https://github.com/pepesr-dev/taskTracker/blob/2d9654957ecb8e5c9009394ab18504dd5b1d3b73/taskTracker/src/DAO.ts#L18">DAO.ts:18</a></li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="savetasks"><span>save<wbr/>Tasks</span><a href="#savetasks" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="">
 <div class="tsd-signature tsd-anchor-link" id="savetasks-1"><span class="tsd-kind-call-signature">saveTasks</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">tasks</span><span class="tsd-signature-symbol">:</span> <a href="Task.Task.html" class="tsd-signature-type tsd-kind-class">Task</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><a href="#savetasks-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></div>
 <div class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>Almacena las tareas en el archivo json</p>
+<div class="tsd-comment tsd-typography"><p>Almacena las tareas en el archivo JSON.</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li><span><span class="tsd-kind-parameter">tasks</span>: <a href="Task.Task.html" class="tsd-signature-type tsd-kind-class">Task</a><span class="tsd-signature-symbol">[]</span></span>
-<div class="tsd-comment tsd-typography"><p>Objeto tarea</p>
+<div class="tsd-comment tsd-typography"><p>Arreglo de instancias de Task a persistir.</p>
 </div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4><ul>
-<li>Devuelve verdadero si realizó la acción correctamente</li>
-</ul>
-<aside class="tsd-sources">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4><p>Devuelve verdadero si realizó la acción correctamente.</p>
+
+<div class="tsd-comment tsd-typography">
+<div class="tsd-tag-throws">
+<h4 class="tsd-anchor-link" id="throws-2">Throws<a href="#throws-2" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4><p>Si falla la escritura en el disco duro.</p>
+</div></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/pepesr-dev/taskTracker/blob/d733303a0ce10b3c0df950f03dc32a7a6827fa70/taskTracker/src/DAO.ts#L56">DAO.ts:56</a></li></ul></aside></div></li></ul></section></section></details></div>
+<li>Defined in <a href="https://github.com/pepesr-dev/taskTracker/blob/2d9654957ecb8e5c9009394ab18504dd5b1d3b73/taskTracker/src/DAO.ts#L67">DAO.ts:67</a></li></ul></aside></div></li></ul></section></section></details></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
