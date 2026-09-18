@@ -10,7 +10,7 @@ typescript, jest, JSON, bash
 ## Instalación
 
 - Descarga el repositorio: `gh repo clone pepesr-dev/taskTracker`
-- Entra en la carpeta específica de la app: `cd taskTracker`
+- Entra en la carpeta específica de la app: `cd taskTracker/taskTracker`
 - Ejemplo de ejecución: `npm run task-cli -- add "Insertar nueva tarea"`
 
 
